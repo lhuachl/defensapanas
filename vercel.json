@@ -1,15 +1,14 @@
 {
-  "buildCommand": "npm install && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
-  "functions": {
-    "app/**": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
     {
       "source": "/capitulo2",
       "destination": "/capitulo2.html"
@@ -17,6 +16,10 @@
     {
       "source": "/capitulo4", 
       "destination": "/capitulo4.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
