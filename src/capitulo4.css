@@ -1,0 +1,1777 @@
+/* ===== CAPÍTULO 4: TRANSPORTE DE SUSTANCIAS ===== */
+
+/* ===== ESTILOS BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  overflow: hidden;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ===== CONTENEDOR ESPECÍFICO PARA CAPÍTULOS ===== */
+.chapter-presentation-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+  overflow: hidden;
+}
+
+.chapter-presentation-container .slides-container {
+  position: relative;
+  height: calc(100vh - 80px); /* Restar altura del header */
+  width: 100%;
+  margin-top: 80px; /* Altura del header */
+}
+
+.chapter-presentation-container .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.chapter-presentation-container .slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.chapter-presentation-container .slide.prev {
+  transform: translateX(-100px);
+}
+
+.slide-content {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+/* ===== CONTROLES DE NAVEGACIÓN ===== */
+.navigation-controls {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+/* ===== INDICADORES DE PROGRESO ===== */
+.progress-indicators {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  width: 10%; /* 1/10 para el primer slide */
+}
+
+.slide-counter {
+  background: rgba(30, 41, 59, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== HEADER DEL CAPÍTULO ===== */
+.chapter-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: var(--transport-gradient);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: white;
+}
+
+.back-arrow {
+  font-size: 1.2rem;
+}
+
+/* ===== SLIDE 1: PORTADA ===== */
+.chapter-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  min-height: 80vh;
+  justify-content: center;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--transport-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.chapter-description {
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.chapter-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(37, 99, 235, 0.05);
+  border: 2px solid rgba(37, 99, 235, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: var(--transport-primary);
+  transform: translateY(-2px);
+}
+
+.highlight-icon {
+  font-size: 2rem;
+}
+
+/* Membrana visual en portada */
+.membrane-visual {
+  margin-top: 2rem;
+}
+
+.lipid-bilayer {
+  position: relative;
+  width: 600px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.phospholipid-layer {
+  height: 40px;
+  background: var(--membrane-gradient);
+  border-radius: 8px;
+  position: relative;
+}
+
+.phospholipid-layer.top {
+  margin-bottom: 10px;
+}
+
+.phospholipid-layer.bottom {
+  margin-top: 10px;
+}
+
+.membrane-proteins {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.channel-protein,
+.transport-protein,
+.pump-protein {
+  width: 60px;
+  height: 80px;
+  border-radius: 30px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.channel-protein {
+  background: linear-gradient(180deg, var(--diffusion-color), #059669);
+}
+
+.transport-protein {
+  background: linear-gradient(180deg, var(--facilitated-color), #2563eb);
+  animation-delay: -1s;
+}
+
+.pump-protein {
+  background: linear-gradient(180deg, var(--active-primary), #f59e0b);
+  animation-delay: -2s;
+}
+
+/* ===== SLIDE 2: MEMBRANA CELULAR ===== */
+.membrane-structure-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.membrane-definition h3 {
+  color: var(--membrane-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.definition-card {
+  background: rgba(236, 72, 153, 0.05);
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.membrane-properties {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.membrane-properties li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.membrane-properties li::before {
+  content: "🔸";
+  position: absolute;
+  left: 0;
+}
+
+.membrane-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailed-membrane {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.extracellular-space,
+.intracellular-space {
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.extracellular-space {
+  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
+  border-radius: 12px 12px 0 0;
+}
+
+.intracellular-space {
+  background: linear-gradient(180deg, #fef3c7, #fde68a);
+  border-radius: 0 0 12px 12px;
+}
+
+.space-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.molecules {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.molecule {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+}
+
+.molecule.water { background: #0ea5e9; }
+.molecule.sodium { background: #3b82f6; }
+.molecule.glucose { background: #10b981; }
+.molecule.potassium { background: #fbbf24; color: #000; }
+.molecule.protein { background: #8b5cf6; }
+.molecule.atp { background: #ef4444; }
+
+.membrane-structure {
+  height: 100px;
+  background: var(--membrane-gradient);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--membrane-color);
+}
+
+.integral-protein {
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.protein-channel {
+  width: 20px;
+  height: 60px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* ===== SLIDE 3: TIPOS DE TRANSPORTE ===== */
+.transport-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.transport-type {
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.transport-type.passive {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+  border: 2px solid var(--passive-color);
+}
+
+.transport-type.active {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 146, 60, 0.1));
+  border: 2px solid var(--active-color);
+}
+
+.transport-type h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.transport-type.passive h3 {
+  color: var(--passive-color);
+}
+
+.transport-type.active h3 {
+  color: var(--active-color);
+}
+
+.transport-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.transport-definition p {
+  margin-bottom: 0.5rem;
+}
+
+.energy-source {
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.transport-type.passive .energy-source {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--passive-color);
+}
+
+.transport-type.active .energy-source {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--active-color);
+}
+
+.transport-characteristics {
+  margin-top: 1rem;
+}
+
+.transport-characteristics h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.transport-characteristics ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transport-characteristics li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.transport-characteristics li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.transport-comparison {
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.concentration-diagram {
+  display: flex;
+  justify-content: center;
+}
+
+.gradient-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.high-concentration,
+.low-concentration {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.high-concentration {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+}
+
+.low-concentration {
+  background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+  color: #1e40af;
+}
+
+.membrane-barrier {
+  width: 60px;
+  height: 80px;
+  background: var(--membrane-gradient);
+  border-radius: 8px;
+  border: 2px solid var(--membrane-color);
+}
+
+.passive-arrow,
+.active-arrow {
+  position: absolute;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.passive-arrow {
+  top: -2rem;
+  color: var(--passive-color);
+}
+
+.active-arrow {
+  bottom: -2rem;
+  color: var(--active-color);
+}
+
+/* ===== SLIDE 4: DIFUSIÓN SIMPLE ===== */
+.simple-diffusion-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.diffusion-definition h3 {
+  color: var(--diffusion-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.definition-box {
+  background: rgba(52, 211, 153, 0.1);
+  border: 2px solid var(--diffusion-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.definition-box ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.definition-box .note {
+  background: rgba(52, 211, 153, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.diffusion-factors h3 {
+  color: var(--transport-primary);
+  margin-bottom: 1rem;
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.factor-card {
+  background: white;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.factor-card:hover {
+  border-color: var(--transport-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.factor-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.factor-card h4 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: var(--transport-primary);
+}
+
+.factor-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.diffusion-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simple-diffusion-demo {
+  position: relative;
+  width: 200px;
+  height: 150px;
+}
+
+.membrane-section {
+  width: 100%;
+  height: 100px;
+  background: var(--membrane-gradient);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diffusing-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.particle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  animation: diffuse 2s ease-in-out infinite;
+}
+
+.particle.oxygen {
+  background: #0ea5e9;
+  animation-delay: 0s;
+}
+
+.particle.co2 {
+  background: #6b7280;
+  animation-delay: -0.7s;
+}
+
+.particle.water {
+  background: #06b6d4;
+  animation-delay: -1.3s;
+}
+
+@keyframes diffuse {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 0.8; }
+}
+
+/* ===== SLIDE 5: DIFUSIÓN FACILITADA ===== */
+.facilitated-diffusion-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.facilitated-info h3 {
+  color: var(--facilitated-color);
+  margin-bottom: 1rem;
+}
+
+.info-card {
+  background: rgba(96, 165, 250, 0.1);
+  border: 2px solid var(--facilitated-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.dependency-factors {
+  margin-top: 1rem;
+}
+
+.dependency-factors h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--facilitated-color);
+}
+
+.dependency-factors ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dependency-factors li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.dependency-factors li::before {
+  content: "💠";
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.aquaporins-section h3 {
+  color: #06b6d4;
+  margin-bottom: 1rem;
+}
+
+.aquaporin-card {
+  background: rgba(6, 182, 212, 0.1);
+  border: 2px solid #06b6d4;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.aquaporin-facts {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fact {
+  background: rgba(6, 182, 212, 0.2);
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.facilitated-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.protein-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.channel {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.channel.aquaporin {
+  background: linear-gradient(180deg, #06b6d4, #0891b2);
+}
+
+.channel.glucose-transporter {
+  background: linear-gradient(180deg, #10b981, #059669);
+}
+
+.channel-name {
+  position: absolute;
+  top: -1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.water-molecules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.water-molecule {
+  background: white;
+  color: #06b6d4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.glucose-molecule {
+  background: white;
+  color: #10b981;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===== SLIDE 6: CANALES PROTEICOS ===== */
+.protein-channels-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.channels-overview h3 {
+  color: var(--transport-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.characteristic {
+  background: rgba(37, 99, 235, 0.05);
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.char-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.characteristic h4 {
+  color: var(--transport-primary);
+  margin-bottom: 0.5rem;
+}
+
+.channel-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.channel-type h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.channel-type.sodium h3 {
+  color: var(--sodium-color);
+}
+
+.channel-type.potassium h3 {
+  color: var(--potassium-color);
+}
+
+.channel-specs {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.spec {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.spec:last-child {
+  border-bottom: none;
+}
+
+.channel-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.channel-pore {
+  width: 60px;
+  height: 100px;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.sodium-channel .channel-pore {
+  background: linear-gradient(180deg, var(--sodium-color), #1d4ed8);
+}
+
+.potassium-channel .channel-pore {
+  background: linear-gradient(180deg, var(--potassium-color), #f59e0b);
+}
+
+.sodium-ion,
+.potassium-ion {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.sodium-ion {
+  background: #1e40af;
+}
+
+.potassium-ion {
+  background: #f97316;
+}
+
+.negative-charges {
+  font-size: 0.6rem;
+  color: white;
+  text-align: center;
+}
+
+.channel-activation {
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.channel-activation h3 {
+  color: var(--transport-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.activation-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.activation-type {
+  background: white;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.activation-type h4 {
+  color: var(--transport-primary);
+  margin-bottom: 1rem;
+}
+
+.voltage-diagram,
+.ligand-diagram {
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.membrane-potential,
+.channel-state {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ligand {
+  font-size: 1.5rem;
+}
+
+.receptor {
+  font-size: 1.2rem;
+}
+
+/* ===== SLIDE 7: OSMOSIS ===== */
+.osmosis-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  padding: 1rem;
+}
+
+.osmosis-definition h3 {
+  color: #06b6d4;
+  margin-bottom: 1rem;
+}
+
+.osmotic-concepts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.concept-card {
+  background: white;
+  border: 2px solid rgba(6, 182, 212, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+  border-color: #06b6d4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.1);
+}
+
+.concept-card h4 {
+  color: #06b6d4;
+  margin-bottom: 0.5rem;
+}
+
+.concept-card small {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.osmosis-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.osmosis-demo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.container {
+  width: 120px;
+  height: 150px;
+  border: 3px solid #06b6d4;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.solution-label {
+  background: #06b6d4;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.water-molecules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.water {
+  font-size: 1rem;
+}
+
+.solute {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.solute.low {
+  background: rgba(16, 185, 129, 0.2);
+  color: #065f46;
+}
+
+.solute.high {
+  background: rgba(245, 158, 11, 0.2);
+  color: #92400e;
+}
+
+.semipermeable-membrane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.membrane-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.water-flow {
+  background: #06b6d4;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  animation: flow 2s ease-in-out infinite;
+}
+
+@keyframes flow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.pressure-arrow {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===== SLIDE 8: TRANSPORTE ACTIVO PRIMARIO ===== */
+.primary-transport-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.transport-definition h3 {
+  color: var(--active-primary);
+  margin-bottom: 1rem;
+}
+
+.primary-pumps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.pump {
+  background: white;
+  border: 2px solid rgba(251, 191, 36, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pump:hover {
+  border-color: var(--active-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.1);
+}
+
+.pump h3 {
+  margin-bottom: 1rem;
+}
+
+.pump.sodium-potassium h3 {
+  color: var(--sodium-color);
+}
+
+.pump.calcium h3 {
+  color: var(--calcium-color);
+}
+
+.pump.hydrogen h3 {
+  color: var(--hydrogen-color);
+}
+
+.pump-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pump-mechanism {
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.pump-function {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.calcium-pumps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pump-type {
+  background: rgba(249, 115, 22, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.pump-locations ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.pump-locations li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.pump-locations li::before {
+  content: "📍";
+  position: absolute;
+  left: 0;
+}
+
+.pump-visual {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cell-membrane {
+  position: relative;
+  width: 200px;
+  height: 80px;
+  background: var(--membrane-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pump-protein {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, var(--active-primary), #f59e0b);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: pump 2s ease-in-out infinite;
+}
+
+@keyframes pump {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.atp-binding {
+  position: absolute;
+  top: -1.5rem;
+  background: #ef4444;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.sodium-exit,
+.potassium-entry {
+  position: absolute;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.sodium-exit {
+  top: -0.5rem;
+  right: -2rem;
+  color: var(--sodium-color);
+}
+
+.potassium-entry {
+  bottom: -0.5rem;
+  left: -2rem;
+  color: var(--potassium-color);
+}
+
+/* ===== SLIDE 9: TRANSPORTE ACTIVO SECUNDARIO ===== */
+.secondary-transport-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.secondary-definition h3 {
+  color: var(--active-secondary);
+  margin-bottom: 1rem;
+}
+
+.secondary-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.transport-type.cotransport {
+  background: rgba(251, 113, 133, 0.1);
+  border: 2px solid var(--active-secondary);
+}
+
+.transport-type.countertransport {
+  background: rgba(168, 85, 247, 0.1);
+  border: 2px solid #a855f7;
+}
+
+.cotransport-details,
+.countertransport-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cotransport-visual,
+.countertransport-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.membrane-protein {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-molecule,
+.secondary-molecule {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.primary-molecule {
+  background: var(--sodium-color);
+  left: -1rem;
+}
+
+.secondary-molecule {
+  background: #10b981;
+  right: -1rem;
+}
+
+.countertransport .secondary-molecule {
+  background: var(--calcium-color);
+}
+
+.transport-direction {
+  position: absolute;
+  bottom: -2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--active-secondary);
+}
+
+.process-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.secondary-examples {
+  background: rgba(251, 113, 133, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.secondary-examples h3 {
+  color: var(--active-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.example-card {
+  background: white;
+  border: 2px solid rgba(251, 113, 133, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.example-card:hover {
+  border-color: var(--active-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 113, 133, 0.1);
+}
+
+.example-card h4 {
+  color: var(--active-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== SLIDE 10: RESUMEN ===== */
+.chapter-summary-layout {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.summary-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.summary-section {
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.summary-section.passive {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--passive-color);
+}
+
+.summary-section.active {
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px solid var(--active-color);
+}
+
+.summary-section h3 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.summary-section.passive h3 {
+  color: var(--passive-color);
+}
+
+.summary-section.active h3 {
+  color: var(--active-color);
+}
+
+.summary-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.point .icon {
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.point p {
+  margin: 0;
+  flex: 1;
+}
+
+.key-concepts {
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.key-concepts h3 {
+  color: var(--transport-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.concept-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.concept-item:hover {
+  border-color: var(--transport-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.concept-icon {
+  font-size: 1.5rem;
+}
+
+.concept-item p {
+  margin: 0;
+  flex: 1;
+}
+
+.clinical-relevance {
+  background: rgba(239, 68, 68, 0.05);
+  border: 2px solid rgba(239, 68, 68, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.clinical-relevance h3 {
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.clinical-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.clinical-item {
+  background: white;
+  border: 2px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.clinical-item:hover {
+  border-color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.clinical-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ===== ANIMACIONES GENERALES ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .membrane-structure-layout,
+  .simple-diffusion-layout,
+  .facilitated-diffusion-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .transport-overview,
+  .channel-types,
+  .secondary-types,
+  .summary-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .primary-pumps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .osmosis-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .chapter-highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .factors-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .clinical-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-intro {
+    padding: 1rem;
+  }
+  
+  .slide-content {
+    padding: 1rem;
+  }
+  
+  .lipid-bilayer {
+    width: 300px;
+    height: 80px;
+  }
+  
+  .membrane-proteins {
+    height: 50px;
+  }
+  
+  .channel-protein,
+  .transport-protein,
+  .pump-protein {
+    width: 40px;
+    height: 50px;
+  }
+}

@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capítulo 4: Transporte de Sustancias a través de las Membranas Celulares - Fisiología Humana</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/capitulo4.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header de navegación -->
+      <header class="chapter-header">
+        <div class="header-content">
+          <a href="index.html" class="back-link">
+            <span class="back-arrow">←</span>
+            <span>Volver a Presentación Principal</span>
+          </a>
+          <h1 class="chapter-title">Capítulo 4: Transporte de Sustancias a través de las Membranas Celulares</h1>
+        </div>
+      </header>
+
+      <!-- Presentación del capítulo -->
+      <div class="chapter-presentation-container">
+        <!-- Controles de navegación -->
+        <div class="navigation-controls">
+          <button id="prevBtn" class="nav-btn prev-btn">&#8249;</button>
+          <button id="nextBtn" class="nav-btn next-btn">&#8250;</button>
+        </div>
+
+        <!-- Indicadores de progreso -->
+        <div class="progress-indicators">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+          </div>
+        </div>
+
+        <!-- Slides del Capítulo 4 -->
+        <div class="slides-container">
+          
+          <!-- Slide 1: Portada del Capítulo -->
+          <div class="slide active" data-slide="1">
+            <div class="slide-content">
+              <div class="chapter-intro">
+                <h1 class="main-title">Transporte de Sustancias a través de las Membranas Celulares</h1>
+                <div class="chapter-description">
+                  <p class="intro-text">Exploraremos los mecanismos fundamentales que permiten el intercambio de sustancias entre el interior y exterior de las células</p>
+                  <div class="chapter-highlights">
+                    <div class="highlight-item">
+                      <span class="highlight-icon">🧱</span>
+                      <span>Estructura de la membrana celular</span>
+                    </div>
+                    <div class="highlight-item">
+                      <span class="highlight-icon">🌊</span>
+                      <span>Procesos de difusión</span>
+                    </div>
+                    <div class="highlight-item">
+                      <span class="highlight-icon">⚡</span>
+                      <span>Transporte activo</span>
+                    </div>
+                    <div class="highlight-item">
+                      <span class="highlight-icon">💧</span>
+                      <span>Osmosis y presión osmótica</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="membrane-visual">
+                  <div class="lipid-bilayer">
+                    <div class="phospholipid-layer top"></div>
+                    <div class="membrane-proteins">
+                      <div class="channel-protein"></div>
+                      <div class="transport-protein"></div>
+                      <div class="pump-protein"></div>
+                    </div>
+                    <div class="phospholipid-layer bottom"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Membrana Celular -->
+          <div class="slide" data-slide="2">
+            <div class="slide-content">
+              <h2 class="slide-title">🧱 Membrana Celular: Barrera Selectiva</h2>
+              <div class="membrane-structure-layout">
+                <div class="membrane-definition">
+                  <h3>Estructura de la Membrana</h3>
+                  <div class="definition-card">
+                    <p><strong>Bicapa lipídica</strong> con proteínas de transporte integradas</p>
+                    <ul class="membrane-properties">
+                      <li>No es miscible con LEC ni LIC</li>
+                      <li>Constituye una barrera para moléculas de agua</li>
+                      <li>Impide paso de sustancias insolubles</li>
+                      <li>Separación entre compartimientos LEC e LIC</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="membrane-diagram">
+                  <div class="detailed-membrane">
+                    <div class="extracellular-space">
+                      <span class="space-label">Espacio Extracelular (LEC)</span>
+                      <div class="molecules extracellular">
+                        <div class="molecule water">H₂O</div>
+                        <div class="molecule sodium">Na⁺</div>
+                        <div class="molecule glucose">Glucosa</div>
+                      </div>
+                    </div>
+                    <div class="membrane-structure">
+                      <div class="phospholipid-head"></div>
+                      <div class="phospholipid-tail"></div>
+                      <div class="integral-protein">
+                        <div class="protein-channel"></div>
+                      </div>
+                      <div class="peripheral-protein"></div>
+                      <div class="phospholipid-tail"></div>
+                      <div class="phospholipid-head"></div>
+                    </div>
+                    <div class="intracellular-space">
+                      <span class="space-label">Espacio Intracelular (LIC)</span>
+                      <div class="molecules intracellular">
+                        <div class="molecule potassium">K⁺</div>
+                        <div class="molecule protein">Proteínas</div>
+                        <div class="molecule atp">ATP</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Tipos de Transporte -->
+          <div class="slide" data-slide="3">
+            <div class="slide-content">
+              <h2 class="slide-title">🚛 Tipos de Transporte Celular</h2>
+              <div class="transport-overview">
+                <div class="transport-type passive">
+                  <h3>🌊 Transporte Pasivo (Difusión)</h3>
+                  <div class="transport-card">
+                    <div class="transport-definition">
+                      <p><strong>Movimiento molecular aleatorio</strong> de sustancias</p>
+                      <p>Energía: <span class="energy-source">Energía cinética natural</span></p>
+                    </div>
+                    <div class="transport-characteristics">
+                      <h4>Características:</h4>
+                      <ul>
+                        <li>A favor del gradiente de concentración</li>
+                        <li>No requiere ATP</li>
+                        <li>Movimiento espontáneo</li>
+                        <li>Hasta equilibrio termodinámico</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="transport-type active">
+                  <h3>⚡ Transporte Activo</h3>
+                  <div class="transport-card">
+                    <div class="transport-definition">
+                      <p><strong>Movimiento contra gradiente</strong> de concentración</p>
+                      <p>Energía: <span class="energy-source">ATP + Proteínas transportadoras</span></p>
+                    </div>
+                    <div class="transport-characteristics">
+                      <h4>Características:</h4>
+                      <ul>
+                        <li>Contra gradiente de concentración</li>
+                        <li>Requiere energía adicional (ATP)</li>
+                        <li>Mediado por proteínas específicas</li>
+                        <li>Mantenimiento de gradientes</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="transport-comparison">
+                <div class="concentration-diagram">
+                  <div class="gradient-visual">
+                    <div class="high-concentration">Alta [C]</div>
+                    <div class="membrane-barrier"></div>
+                    <div class="low-concentration">Baja [C]</div>
+                    <div class="passive-arrow">→ Difusión</div>
+                    <div class="active-arrow">← Transporte Activo</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Difusión Simple -->
+          <div class="slide" data-slide="4">
+            <div class="slide-content">
+              <h2 class="slide-title">🌊 Difusión Simple</h2>
+              <div class="simple-diffusion-layout">
+                <div class="diffusion-definition">
+                  <h3>Definición</h3>
+                  <div class="definition-box">
+                    <p><strong>Movimiento cinético</strong> de moléculas o iones a través de:</p>
+                    <ol>
+                      <li>Intersticios de la bicapa lipídica</li>
+                      <li>Canales acuosos</li>
+                    </ol>
+                    <p class="note">Sin interacción con proteínas transportadoras</p>
+                  </div>
+                </div>
+                <div class="diffusion-factors">
+                  <h3>Factores que Afectan la Velocidad</h3>
+                  <div class="factors-grid">
+                    <div class="factor-card">
+                      <span class="factor-icon">📊</span>
+                      <h4>Concentración</h4>
+                      <p>↓ Concentración = ↑ Tiempo de difusión</p>
+                    </div>
+                    <div class="factor-card">
+                      <span class="factor-icon">🌡️</span>
+                      <h4>Temperatura</h4>
+                      <p>↑ Temperatura = ↑ Velocidad</p>
+                    </div>
+                    <div class="factor-card">
+                      <span class="factor-icon">🧪</span>
+                      <h4>Liposolubilidad</h4>
+                      <p>↑ Liposolubilidad = ↑ Difusión</p>
+                    </div>
+                    <div class="factor-card">
+                      <span class="factor-icon">📏</span>
+                      <h4>Tamaño</h4>
+                      <p>↓ Tamaño = ↑ Difusión</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="diffusion-visual">
+                  <div class="simple-diffusion-demo">
+                    <div class="membrane-section">
+                      <div class="lipid-molecules"></div>
+                      <div class="diffusing-particles">
+                        <div class="particle oxygen">O₂</div>
+                        <div class="particle co2">CO₂</div>
+                        <div class="particle water">H₂O</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Difusión Facilitada -->
+          <div class="slide" data-slide="5">
+            <div class="slide-content">
+              <h2 class="slide-title">🚪 Difusión Facilitada</h2>
+              <div class="facilitated-diffusion-layout">
+                <div class="facilitated-info">
+                  <h3>Características</h3>
+                  <div class="info-card">
+                    <p><strong>Requiere proteína transportadora</strong></p>
+                    <p><strong>Sin gasto de ATP</strong></p>
+                    <div class="dependency-factors">
+                      <h4>Velocidad depende de:</h4>
+                      <ul>
+                        <li>Liposolubilidad</li>
+                        <li>Gradiente de concentración</li>
+                        <li>Tamaño molecular</li>
+                        <li>Polaridad</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="aquaporins-section">
+                  <h3>💧 Acuaporinas</h3>
+                  <div class="aquaporin-card">
+                    <p><strong>Poros proteicos especializados</strong></p>
+                    <p>Permiten el paso rápido de agua a través de la membrana</p>
+                    <div class="aquaporin-facts">
+                      <div class="fact">El agua es muy insoluble en lípidos</div>
+                      <div class="fact">Las acuaporinas son canales selectivos para H₂O</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="facilitated-visual">
+                  <div class="protein-channels">
+                    <div class="channel aquaporin">
+                      <div class="channel-name">Acuaporina</div>
+                      <div class="water-molecules">
+                        <div class="water-molecule">H₂O</div>
+                        <div class="water-molecule">H₂O</div>
+                        <div class="water-molecule">H₂O</div>
+                      </div>
+                    </div>
+                    <div class="channel glucose-transporter">
+                      <div class="channel-name">Transportador de Glucosa</div>
+                      <div class="glucose-molecule">Glucosa</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Canales Proteicos -->
+          <div class="slide" data-slide="6">
+            <div class="slide-content">
+              <h2 class="slide-title">🔌 Canales Proteicos</h2>
+              <div class="protein-channels-layout">
+                <div class="channels-overview">
+                  <h3>Características Principales</h3>
+                  <div class="overview-grid">
+                    <div class="characteristic">
+                      <span class="char-icon">🎯</span>
+                      <h4>Permeabilidad Selectiva</h4>
+                      <p>Solo permiten el paso de ciertas sustancias específicas</p>
+                    </div>
+                    <div class="characteristic">
+                      <span class="char-icon">🚪</span>
+                      <h4>Compuertas Regulables</h4>
+                      <p>Se pueden abrir o cerrar mediante señales eléctricas o químicas</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="channel-types">
+                  <div class="channel-type sodium">
+                    <h3>🔵 Canales de Sodio</h3>
+                    <div class="channel-specs">
+                      <div class="spec">Tamaño: 0.3 × 0.5 nm</div>
+                      <div class="spec">Carga: Intensamente negativa</div>
+                      <div class="spec">Efecto: Arrastran iones sin deshidratar</div>
+                    </div>
+                    <div class="channel-visual sodium-channel">
+                      <div class="channel-pore">
+                        <div class="sodium-ion">Na⁺</div>
+                        <div class="negative-charges">⊖ ⊖ ⊖</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="channel-type potassium">
+                    <h3>🟡 Canales de Potasio</h3>
+                    <div class="channel-specs">
+                      <div class="spec">Tamaño: 0.9 × 0.3 nm</div>
+                      <div class="spec">Carga: Sin carga negativa</div>
+                      <div class="spec">Efecto: No deshidrata iones</div>
+                    </div>
+                    <div class="channel-visual potassium-channel">
+                      <div class="channel-pore">
+                        <div class="potassium-ion">K⁺</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="channel-activation">
+                  <h3>⚡ Activación de Canales</h3>
+                  <div class="activation-types">
+                    <div class="activation-type voltage">
+                      <h4>1. Por Voltaje</h4>
+                      <p>Reposo: -90 mV → Canal cerrado</p>
+                      <p>Activación: -65 mV → Canal abierto</p>
+                      <div class="voltage-diagram">
+                        <div class="membrane-potential">-90mV → -65mV</div>
+                        <div class="channel-state">Cerrado → Abierto</div>
+                      </div>
+                    </div>
+                    <div class="activation-type chemical">
+                      <h4>2. Química (Ligando)</h4>
+                      <p>Ligando se une al receptor</p>
+                      <p>Canal cambia: Cerrado → Abierto</p>
+                      <div class="ligand-diagram">
+                        <div class="ligand">🔑</div>
+                        <div class="receptor">🔒 → 🔓</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7: Osmosis -->
+          <div class="slide" data-slide="7">
+            <div class="slide-content">
+              <h2 class="slide-title">💧 Osmosis</h2>
+              <div class="osmosis-layout">
+                <div class="osmosis-definition">
+                  <h3>Definición</h3>
+                  <div class="definition-card">
+                    <p><strong>Paso del solvente</strong> a través de una membrana de permeabilidad selectiva</p>
+                    <p><strong>Dirección:</strong> Desde menor concentración → Mayor concentración</p>
+                  </div>
+                </div>
+                <div class="osmotic-concepts">
+                  <div class="concept-card pressure">
+                    <h4>🔄 Presión Osmótica</h4>
+                    <p>Presión necesaria para detener la osmosis</p>
+                  </div>
+                  <div class="concept-card osmolality">
+                    <h4>⚖️ Osmolalidad (osmol)</h4>
+                    <p>Peso molecular-gramo de un soluto osmóticamente activo</p>
+                    <p><small>Unidad: osmol (en lugar de gramos)</small></p>
+                  </div>
+                  <div class="concept-card osmolarity">
+                    <h4>📊 Osmolaridad</h4>
+                    <p>Expresada en osmol por litro de solución</p>
+                    <p><small>Más práctica que la osmolalidad</small></p>
+                  </div>
+                </div>
+                <div class="osmosis-visual">
+                  <div class="osmosis-demo">
+                    <div class="container left">
+                      <div class="solution-label">Hipotónica</div>
+                      <div class="water-molecules">
+                        <div class="water">💧</div>
+                        <div class="water">💧</div>
+                        <div class="water">💧</div>
+                      </div>
+                      <div class="solute low">Baja [soluto]</div>
+                    </div>
+                    <div class="semipermeable-membrane">
+                      <div class="membrane-label">Membrana Semipermeable</div>
+                      <div class="water-flow">→ H₂O →</div>
+                    </div>
+                    <div class="container right">
+                      <div class="solution-label">Hipertónica</div>
+                      <div class="water-molecules">
+                        <div class="water">💧</div>
+                      </div>
+                      <div class="solute high">Alta [soluto]</div>
+                      <div class="pressure-arrow">↑ Presión Osmótica</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8: Transporte Activo Primario -->
+          <div class="slide" data-slide="8">
+            <div class="slide-content">
+              <h2 class="slide-title">⚡ Transporte Activo Primario</h2>
+              <div class="primary-transport-layout">
+                <div class="transport-definition">
+                  <h3>Definición</h3>
+                  <div class="definition-card">
+                    <p><strong>Energía procede directamente de la escisión del ATP</strong></p>
+                    <p>Movimiento contra gradiente de concentración</p>
+                  </div>
+                </div>
+                <div class="primary-pumps">
+                  <div class="pump sodium-potassium">
+                    <h3>🔄 Bomba Sodio-Potasio</h3>
+                    <div class="pump-details">
+                      <div class="pump-mechanism">
+                        <p><strong>Electrógena:</strong></p>
+                        <p>3 Na⁺ → Exterior</p>
+                        <p>2 K⁺ → Interior</p>
+                      </div>
+                      <div class="pump-function">
+                        <p><strong>Función:</strong> Mantener volumen celular normal</p>
+                        <p>Si la célula se hincha → Se activa automáticamente</p>
+                      </div>
+                    </div>
+                    <div class="pump-visual">
+                      <div class="cell-membrane">
+                        <div class="pump-protein">
+                          <div class="atp-binding">ATP</div>
+                          <div class="sodium-exit">3 Na⁺ →</div>
+                          <div class="potassium-entry">← 2 K⁺</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pump calcium">
+                    <h3>🔶 Bomba de Calcio</h3>
+                    <div class="pump-details">
+                      <p>Concentración Ca²⁺ intracelular: <strong>10,000 veces menor</strong> que en LEC</p>
+                      <div class="calcium-pumps">
+                        <div class="pump-type">
+                          <strong>Bomba 1:</strong> Membrana celular → Ca²⁺ al exterior
+                        </div>
+                        <div class="pump-type">
+                          <strong>Bomba 2:</strong> Orgánulos intracelulares → Ca²⁺ a vesículas
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pump hydrogen">
+                    <h3>🔴 Bomba de Hidrógeno</h3>
+                    <div class="pump-locations">
+                      <p><strong>Ubicaciones:</strong></p>
+                      <ul>
+                        <li>Glándulas gástricas del estómago</li>
+                        <li>Túbulos distales de los riñones</li>
+                        <li>Conductos colectores corticales</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9: Transporte Activo Secundario -->
+          <div class="slide" data-slide="9">
+            <div class="slide-content">
+              <h2 class="slide-title">🔄 Transporte Activo Secundario</h2>
+              <div class="secondary-transport-layout">
+                <div class="secondary-definition">
+                  <h3>Definición</h3>
+                  <div class="definition-card">
+                    <p><strong>Energía procede indirectamente</strong></p>
+                    <p>Utiliza energía almacenada de un transporte activo primario</p>
+                  </div>
+                </div>
+                <div class="secondary-types">
+                  <div class="transport-type cotransport">
+                    <h3>↗️ Cotransporte (Simporte)</h3>
+                    <div class="cotransport-details">
+                      <p><strong>Arrastre de moléculas</strong> junto a una molécula transportada por transporte primario</p>
+                      <div class="cotransport-visual">
+                        <div class="membrane-protein">
+                          <div class="primary-molecule">Na⁺</div>
+                          <div class="secondary-molecule">Glucosa</div>
+                          <div class="transport-direction">→ → →</div>
+                        </div>
+                        <div class="process-label">Misma dirección</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="transport-type countertransport">
+                    <h3>↔️ Contratransporte (Antiporte)</h3>
+                    <div class="countertransport-details">
+                      <p><strong>Arrastre de moléculas</strong> en dirección opuesta a la molécula transportada por transporte primario</p>
+                      <div class="countertransport-visual">
+                        <div class="membrane-protein">
+                          <div class="primary-molecule">Na⁺</div>
+                          <div class="secondary-molecule">Ca²⁺</div>
+                          <div class="transport-direction">→ ← →</div>
+                        </div>
+                        <div class="process-label">Dirección opuesta</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="secondary-examples">
+                  <h3>🔬 Ejemplos Importantes</h3>
+                  <div class="examples-grid">
+                    <div class="example-card">
+                      <h4>Transporte de Glucosa</h4>
+                      <p>Na⁺/Glucosa cotransportador en intestino</p>
+                    </div>
+                    <div class="example-card">
+                      <h4>Intercambiador Na⁺/Ca²⁺</h4>
+                      <p>Elimina Ca²⁺ del citoplasma</p>
+                    </div>
+                    <div class="example-card">
+                      <h4>Intercambiador Na⁺/H⁺</h4>
+                      <p>Regulación del pH intracelular</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 10: Resumen del Capítulo -->
+          <div class="slide" data-slide="10">
+            <div class="slide-content">
+              <h2 class="slide-title">📋 Resumen: Transporte de Sustancias</h2>
+              <div class="chapter-summary-layout">
+                <div class="summary-sections">
+                  <div class="summary-section passive">
+                    <h3>🌊 Transporte Pasivo</h3>
+                    <div class="summary-points">
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Difusión simple:</strong> A través de bicapa lipídica o canales</p>
+                      </div>
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Difusión facilitada:</strong> Mediada por proteínas, sin ATP</p>
+                      </div>
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Osmosis:</strong> Movimiento de agua a favor del gradiente</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary-section active">
+                    <h3>⚡ Transporte Activo</h3>
+                    <div class="summary-points">
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Primario:</strong> Energía directa del ATP</p>
+                      </div>
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Secundario:</strong> Energía indirecta almacenada</p>
+                      </div>
+                      <div class="point">
+                        <span class="icon">🔸</span>
+                        <p><strong>Bombas:</strong> Na⁺/K⁺, Ca²⁺, H⁺</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="key-concepts">
+                  <h3>🎯 Conceptos Clave</h3>
+                  <div class="concepts-grid">
+                    <div class="concept-item">
+                      <span class="concept-icon">🧱</span>
+                      <p>La <strong>membrana celular</strong> es una barrera selectiva</p>
+                    </div>
+                    <div class="concept-item">
+                      <span class="concept-icon">⚖️</span>
+                      <p>Los <strong>gradientes</strong> impulsan el transporte pasivo</p>
+                    </div>
+                    <div class="concept-item">
+                      <span class="concept-icon">🔋</span>
+                      <p>El <strong>ATP</strong> permite transporte contra gradientes</p>
+                    </div>
+                    <div class="concept-item">
+                      <span class="concept-icon">🎯</span>
+                      <p>Las <strong>proteínas</strong> proporcionan especificidad</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="clinical-relevance">
+                  <h3>🏥 Relevancia Clínica</h3>
+                  <div class="clinical-points">
+                    <div class="clinical-item">
+                      <p><strong>Edema:</strong> Alteraciones en transporte de agua</p>
+                    </div>
+                    <div class="clinical-item">
+                      <p><strong>Arritmias:</strong> Desequilibrios de Na⁺/K⁺</p>
+                    </div>
+                    <div class="clinical-item">
+                      <p><strong>Diabetes:</strong> Defectos en transporte de glucosa</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/capitulo4.js"></script>
+  </body>
+</html>

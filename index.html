@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fisiología Humana - Organización Funcional del Cuerpo</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Presentación principal -->
+      <div class="presentation-container">
+        <!-- Controles de navegación -->
+        <div class="navigation-controls">
+          <button id="prevBtn" class="nav-btn prev-btn">&#8249;</button>
+          <button id="nextBtn" class="nav-btn next-btn">&#8250;</button>
+        </div>
+
+        <!-- Indicadores de progreso -->
+        <div class="progress-indicators">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+          </div>
+        </div>
+
+        <!-- Slides -->
+        <div class="slides-container">
+          <!-- Slide 1: Portada -->
+          <div class="slide active" data-slide="1">
+            <div class="slide-content">
+              <div class="title-section">
+                <h1 class="slide-title">Fisiología Humana</h1>
+                <h2 class="slide-subtitle">Organización Funcional del Cuerpo Humano y Control del Medio Interno</h2>
+                <div class="chapter-info">
+                  <span class="chapter-number">Capítulo 1</span>
+                  <span class="unit-info">Unidad I</span>
+                </div>
+              </div>
+              <div class="hero-image">
+                <div id="heart-3d-container" class="model-3d-container">
+                  <div class="model-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Cargando modelo 3D del corazón...</p>
+                  </div>
+                </div>
+                <div class="model-controls">
+                  <p class="model-hint">🖱️ Arrastra para rotar • 🔍 Scroll para zoom</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Definición de Fisiología -->
+          <div class="slide" data-slide="2">
+            <div class="slide-content">
+              <h2 class="slide-title">¿Qué es la Fisiología?</h2>
+              <div class="physiology-layout">
+                <div class="diagram-section">
+                  <div id="physiology-diagram-container" class="model-3d-container">
+                    <div class="model-loading">
+                      <div class="loading-spinner"></div>
+                      <p>Cargando diagrama interactivo...</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="definitions-section">
+                  <div class="definition-main">
+                    <div class="icon-wrapper">🧬</div>
+                    <h3>Fisiología</h3>
+                    <p>Ciencia que explica los <strong>mecanismos físicos y químicos</strong> responsables del origen, desarrollo y progresión de la vida.</p>
+                  </div>
+                  
+                  <div class="definition-human">
+                    <div class="icon-wrapper">👤</div>
+                    <h3>Fisiología Humana</h3>
+                    <p>Explica las <strong>características y mecanismos específicos</strong> del cuerpo humano que lo hacen ser un ser vivo.</p>
+                  </div>
+
+                  <div class="key-concept">
+                    <h4>🔑 Concepto Clave</h4>
+                    <p>El hecho de <strong>mantenerse vivo</strong> es el resultado de <em>sistemas de control complejos</em>.</p>
+                    <div class="interaction-hint">
+                      <small>💡 Interactúa con el diagrama para explorar los sistemas</small>
+                    </div>
+                  </div>
+
+                  <div class="chapter-navigation">
+                    <a href="capitulo2.html" class="chapter-link">
+                      <div class="chapter-link-content">
+                        <div class="chapter-icon">🔬</div>
+                        <div class="chapter-text">
+                          <h4>Ir al Capítulo 2: La Célula y sus Funciones</h4>
+                          <p>Explora en detalle la estructura y funciones celulares</p>
+                        </div>
+                        <div class="chapter-arrow">→</div>
+                      </div>
+                    </a>
+                    <a href="capitulo4.html" class="chapter-link">
+                      <div class="chapter-link-content">
+                        <div class="chapter-icon">🚛</div>
+                        <div class="chapter-text">
+                          <h4>Ir al Capítulo 4: Transporte de Sustancias</h4>
+                          <p>Descubre los mecanismos de transporte a través de membranas</p>
+                        </div>
+                        <div class="chapter-arrow">→</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: La Célula y el Medio Interno -->
+          <div class="slide" data-slide="3">
+            <div class="slide-content">
+              <h2 class="slide-title">Las Células y el Medio Interno</h2>
+              <div class="cellular-info">
+                <div class="cell-section">
+                  <div id="cell-3d-container" class="model-3d-container small">
+                    <div class="model-loading">
+                      <div class="loading-spinner"></div>
+                      <p>Cargando célula 3D...</p>
+                    </div>
+                  </div>
+                  <h3>Las Células como Unidades Vivas</h3>
+                  <p>La <strong>unidad básica del cuerpo</strong> es la célula. Cada órgano es un agregado de muchas células diferentes.</p>
+                </div>
+
+                <div class="fluid-section">
+                  <div class="fluid-stats">
+                    <div class="stat-large">60%</div>
+                    <div class="stat-description">del cuerpo humano adulto es líquido</div>
+                  </div>
+                  
+                  <div class="lec-info">
+                    <h4>💧 Líquido Extracelular (LEC)</h4>
+                    <ul class="feature-list">
+                      <li>Contiene iones y nutrientes necesarios para las células</li>
+                      <li>Todas las células viven en el mismo entorno de LEC</li>
+                      <li>También llamado <strong>"medio interno"</strong></li>
+                    </ul>
+                  </div>
+
+                  <div class="historical-note">
+                    <p><em>Término introducido por <strong>Claude Bernard</strong> (1813-1878)</em></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Homeostasis -->
+          <div class="slide" data-slide="4">
+            <div class="slide-content">
+              <h2 class="slide-title">Homeostasis</h2>
+              <div class="homeostasis-content">
+                <div class="homeostasis-definition">
+                  <div class="scientist-info">
+                    <div class="scientist-year">1929</div>
+                    <div class="scientist-name">Walter Cannon (1871-1945)</div>
+                  </div>
+                  <h3>Mantenimiento de un Medio Interno</h3>
+                  <p>Mantenimiento de unas <strong>condiciones casi constantes</strong> del medio interno.</p>
+                </div>
+
+                <div class="organ-functions">
+                  <h4>🫁 Ejemplos de Funciones Homeostáticas</h4>
+                  <div class="function-grid">
+                    <div class="function-card">
+                      <div class="organ-icon">🫁</div>
+                      <h5>Pulmones</h5>
+                      <p>Aportan oxígeno al LEC</p>
+                    </div>
+                    <div class="function-card">
+                      <div class="organ-icon">🫘</div>
+                      <h5>Riñones</h5>
+                      <p>Mantienen constantes las concentraciones de iones</p>
+                    </div>
+                    <div class="function-card">
+                      <div class="organ-icon">🍎</div>
+                      <h5>Aparato Digestivo</h5>
+                      <p>Aporta los nutrientes necesarios</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="disease-concept">
+                  <h4>⚠️ Concepto Importante</h4>
+                  <p>La <strong>enfermedad</strong> se considera un estado de <em>ruptura de la homeostasis</em>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Sistemas de Transporte -->
+          <div class="slide" data-slide="5">
+            <div class="slide-content">
+              <h2 class="slide-title">Sistema de Transporte en el LEC</h2>
+              <div class="transport-content">
+                <div class="circulation-image">
+                  <div id="circulation-3d-container" class="model-3d-container medium">
+                    <div class="model-loading">
+                      <div class="loading-spinner"></div>
+                      <p>Cargando sistema circulatorio...</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="transport-stages">
+                  <h3>🩸 El Aparato Circulatorio - 2 Etapas</h3>
+                  <div class="stage-container">
+                    <div class="stage-card">
+                      <div class="stage-number">1</div>
+                      <h4>Movimiento de la Sangre</h4>
+                      <p>Circulación por el cuerpo dentro de los <strong>vasos sanguíneos</strong></p>
+                    </div>
+                    <div class="stage-card">
+                      <div class="stage-number">2</div>
+                      <h4>Intercambio Capilar</h4>
+                      <p>Movimiento del líquido entre <strong>capilares</strong> y espacios intercelulares</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="diffusion-info">
+                  <h4>🔄 Proceso de Difusión</h4>
+                  <p>Intercambio continuo debido al <strong>movimiento cinético</strong> de las moléculas en el plasma y líquido intersticial.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Sistemas de Regulación -->
+          <div class="slide" data-slide="6">
+            <div class="slide-content">
+              <h2 class="slide-title">Sistemas de Regulación Corporal</h2>
+              <div class="regulation-systems">
+                <div class="systems-image-container">
+                  <div class="medical-diagram">
+                    <div class="diagram-placeholder">
+                      <div class="body-outline">
+                        <div class="nervous-system-overlay">
+                          <div class="brain-icon">🧠</div>
+                          <div class="spinal-cord"></div>
+                          <div class="nerve-network">
+                            <div class="nerve-line nerve-1"></div>
+                            <div class="nerve-line nerve-2"></div>
+                            <div class="nerve-line nerve-3"></div>
+                            <div class="nerve-line nerve-4"></div>
+                          </div>
+                        </div>
+                        <div class="endocrine-system-overlay">
+                          <div class="gland thyroid">T</div>
+                          <div class="gland adrenal">A</div>
+                          <div class="gland pancreas">P</div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="diagram-note">Diagrama simplificado de los sistemas de regulación</p>
+                  </div>
+                </div>
+                
+                <div class="nervous-system">
+                  <h3>🧠 Sistema Nervioso</h3>
+                  <div class="nervous-parts">
+                    <div class="nervous-card">
+                      <div class="icon">👁️</div>
+                      <h4>Porción Aferente</h4>
+                      <p>Detecta el estado del cuerpo (receptores)</p>
+                    </div>
+                    <div class="nervous-card">
+                      <div class="icon">🧠</div>
+                      <h4>Sistema Nervioso Central</h4>
+                      <p>Cerebro y médula espinal</p>
+                    </div>
+                    <div class="nervous-card">
+                      <div class="icon">⚡</div>
+                      <h4>Sistema Neurovegetativo</h4>
+                      <p>Control subconsciente de órganos</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hormonal-system">
+                  <h3>🧪 Sistema Hormonal</h3>
+                  <div class="hormone-examples">
+                    <div class="hormone-item">
+                      <span class="hormone-name">Tiroxina</span>
+                      <span class="hormone-function">↑ Velocidad reacciones químicas</span>
+                    </div>
+                    <div class="hormone-item">
+                      <span class="hormone-name">Insulina</span>
+                      <span class="hormone-function">Control metabolismo glucosa</span>
+                    </div>
+                    <div class="hormone-item">
+                      <span class="hormone-name">Cortisol</span>
+                      <span class="hormone-function">Control Na+, K+ y proteínas</span>
+                    </div>
+                    <div class="hormone-item">
+                      <span class="hormone-name">PTH</span>
+                      <span class="hormone-function">Control Ca++ y fosfato</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7: Mecanismos de Control -->
+          <div class="slide" data-slide="7">
+            <div class="slide-content">
+              <h2 class="slide-title">Mecanismos de Control</h2>
+              <div class="control-mechanisms">
+                <div class="feedback-types">
+                  <div class="feedback-negative">
+                    <h3>🔄 Retroalimentación Negativa</h3>
+                    <div class="feedback-example">
+                      <h4>Ejemplo: Control de CO₂</h4>
+                      <div class="process-flow">
+                        <div class="flow-step">↑ CO₂</div>
+                        <div class="arrow">→</div>
+                        <div class="flow-step">Estimula centro respiratorio</div>
+                        <div class="arrow">→</div>
+                        <div class="flow-step">↑ Respiración</div>
+                        <div class="arrow">→</div>
+                        <div class="flow-step">↓ CO₂</div>
+                      </div>
+                    </div>
+                    <p><strong>Resultado:</strong> Mantiene la homeostasis</p>
+                  </div>
+
+                  <div class="feedback-positive">
+                    <h3>⚡ Retroalimentación Positiva</h3>
+                    <p>No consigue estabilidad, sino <strong>inestabilidad</strong></p>
+                    <div class="positive-examples">
+                      <span class="example-tag">Coagulación</span>
+                      <span class="example-tag">Parto</span>
+                      <span class="example-tag">Señales nerviosas</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="normal-values">
+                  <h3>📊 Valores Normales Críticos</h3>
+                  <div class="values-grid">
+                    <div class="value-item critical">
+                      <div class="value-number">±7°C</div>
+                      <div class="value-desc">Temperatura letal</div>
+                    </div>
+                    <div class="value-item critical">
+                      <div class="value-number">pH 7.4</div>
+                      <div class="value-desc">±0.5 = mortal</div>
+                    </div>
+                    <div class="value-item warning">
+                      <div class="value-number">K+</div>
+                      <div class="value-desc">⅓ normal = parálisis</div>
+                    </div>
+                    <div class="value-item warning">
+                      <div class="value-number">Ca++</div>
+                      <div class="value-desc">½ normal = tetania</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8: Automatismo del Organismo -->
+          <div class="slide" data-slide="8">
+            <div class="slide-content">
+              <h2 class="slide-title">Automatismo del Organismo</h2>
+              <div class="automatism-content">
+                <div class="organism-concept">
+                  <div class="cell-count">
+                    <div class="big-number">Billones</div>
+                    <div class="number-desc">de células organizadas</div>
+                  </div>
+                  
+                  <div class="reciprocal-relationship">
+                    <h3>🔄 Interrelación Recíproca</h3>
+                    <div class="relationship-flow">
+                      <div class="relationship-box">
+                        <h4>Cada célula se beneficia de la homeostasis</h4>
+                      </div>
+                      <div class="bidirectional-arrow">⇅</div>
+                      <div class="relationship-box">
+                        <h4>Cada célula contribuye al mantenimiento</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="automatism-result">
+                  <h3>⚙️ Resultado: AUTOMATISMO Continuo</h3>
+                  <p>El organismo funciona automáticamente <strong>hasta que uno o varios sistemas pierden su capacidad</strong></p>
+                </div>
+
+                <div class="dysfunction-levels">
+                  <div class="dysfunction-item severe">
+                    <div class="level-icon">💀</div>
+                    <h4>Disfunción Extrema</h4>
+                    <p>Provoca la <strong>muerte</strong></p>
+                  </div>
+                  <div class="dysfunction-item moderate">
+                    <div class="level-icon">🤒</div>
+                    <h4>Disfunción Moderada</h4>
+                    <p>Provoca <strong>enfermedad</strong></p>
+                  </div>
+                </div>
+
+                <div class="conclusion">
+                  <h3>✨ Conclusión</h3>
+                  <p>La <strong>organización funcional</strong> del cuerpo humano es un sistema complejo de <em>interdependencia celular</em> que mantiene la vida a través del <strong>control del medio interno</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9: Navegación al Siguiente Capítulo -->
+          <div class="slide" data-slide="9">
+            <div class="slide-content">
+              <div class="chapter-navigation-page">
+                <div class="chapter-complete">
+                  <div class="completion-icon">✅</div>
+                  <h2>Capítulo 1 Completado</h2>
+                  <p>Has terminado el estudio de la <strong>Organización Funcional del Cuerpo Humano</strong></p>
+                </div>
+
+                <div class="next-chapter-section">
+                  <h3>📚 Continúa tu aprendizaje</h3>
+                  
+                  <div class="chapter-cards">
+                    <a href="capitulo2.html" class="next-chapter-card">
+                      <div class="chapter-card-icon">🔬</div>
+                      <div class="chapter-card-content">
+                        <h4>Capítulo 2</h4>
+                        <h5>La Célula y sus Funciones</h5>
+                        <p>Explora en detalle la estructura celular, organelos, membranas y procesos celulares fundamentales</p>
+                        <div class="chapter-topics">
+                          <span class="topic">Organización celular</span>
+                          <span class="topic">Membranas biológicas</span>
+                          <span class="topic">Organelos</span>
+                        </div>
+                      </div>
+                      <div class="chapter-arrow">→</div>
+                    </a>
+
+                    <a href="capitulo4.html" class="next-chapter-card">
+                      <div class="chapter-card-icon">🚛</div>
+                      <div class="chapter-card-content">
+                        <h4>Capítulo 4</h4>
+                        <h5>Transporte de Sustancias</h5>
+                        <p>Mecanismos de transporte a través de membranas celulares, difusión, osmosis y transporte activo</p>
+                        <div class="chapter-topics">
+                          <span class="topic">Membrana celular</span>
+                          <span class="topic">Difusión</span>
+                          <span class="topic">Transporte activo</span>
+                          <span class="topic">Osmosis</span>
+                        </div>
+                      </div>
+                      <div class="chapter-arrow">→</div>
+                    </a>
+                  </div>
+
+                  <div class="navigation-options">
+                    <button onclick="window.location.href='index.html'" class="nav-option secondary">
+                      <span>🔄</span>
+                      Revisar Capítulo 1
+                    </button>
+                    <button onclick="window.location.href='capitulo2.html'" class="nav-option primary">
+                      <span>🚀</span>
+                      Ir al Capítulo 2
+                    </button>
+                    <button onclick="window.location.href='capitulo4.html'" class="nav-option primary">
+                      <span>🚛</span>
+                      Ir al Capítulo 4
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navegación por puntos -->
+        <div class="dot-navigation">
+          <span class="dot active" data-slide="1" title="Portada"></span>
+          <span class="dot" data-slide="2" title="Definición"></span>
+          <span class="dot" data-slide="3" title="Células y Medio"></span>
+          <span class="dot" data-slide="4" title="Homeostasis"></span>
+          <span class="dot" data-slide="5" title="Transporte"></span>
+          <span class="dot" data-slide="6" title="Regulación"></span>
+          <span class="dot" data-slide="7" title="Control"></span>
+          <span class="dot" data-slide="8" title="Automatismo"></span>
+          <span class="dot" data-slide="9" title="Siguiente Capítulo"></span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

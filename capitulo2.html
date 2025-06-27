@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capítulo 2: La Célula y sus Funciones - Fisiología Humana</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/capitulo2.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header de navegación -->
+      <header class="chapter-header">
+        <div class="header-content">
+          <a href="index.html" class="back-link">
+            <span class="back-arrow">←</span>
+            <span>Volver a Presentación Principal</span>
+          </a>
+          <h1 class="chapter-title">Capítulo 2: La Célula y sus Funciones</h1>
+        </div>
+      </header>
+
+      <!-- Presentación del capítulo -->
+      <div class="chapter-presentation-container">
+        <!-- Controles de navegación -->
+        <div class="navigation-controls">
+          <button id="prevBtn" class="nav-btn prev-btn">&#8249;</button>
+          <button id="nextBtn" class="nav-btn next-btn">&#8250;</button>
+        </div>
+
+        <!-- Indicadores de progreso -->
+        <div class="progress-indicators">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+          </div>
+        </div>
+
+        <!-- Slides del Capítulo 2 -->
+        <div class="slides-container">
+          
+          <!-- Slide 1: Portada del Capítulo -->
+          <div class="slide active" data-slide="1">
+            <div class="slide-content">
+              <div class="chapter-intro">
+                <h1 class="main-title">La Célula y sus Funciones</h1>
+                <h2 class="subtitle">Capítulo 2 - Fisiología Humana</h2>
+                <div class="intro-visual">
+                  <div id="cell-intro-3d" class="model-3d-container large">
+                    <div class="cell-intro-diagram">
+                      <div class="cell-structure">
+                        <div class="cell-membrane-intro">
+                          <div class="nucleus-center">🔵</div>
+                          <div class="organelles-floating">
+                            <span class="organelle mito">⚡</span>
+                            <span class="organelle ribo">📦</span>
+                            <span class="organelle golgi">🏭</span>
+                            <span class="organelle lyso">🔬</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chapter-overview">
+                  <p><strong>La célula es la unidad básica de la vida.</strong> Exploraremos su estructura, organelos y funciones vitales que permiten el funcionamiento del cuerpo humano.</p>
+                  <div class="key-topics">
+                    <span class="topic-tag">🧬 Estructura celular</span>
+                    <span class="topic-tag">🔬 Organelos</span>
+                    <span class="topic-tag">⚡ Funciones vitales</span>
+                    <span class="topic-tag">🚀 Procesos celulares</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Estructura General de la Célula -->
+          <div class="slide" data-slide="2">
+            <div class="slide-content">
+              <h2 class="slide-title">🏗️ Estructura General de la Célula</h2>
+              <div class="organization-layout">
+                <div class="main-parts">
+                  <h3>Componentes Principales</h3>
+                  <div class="parts-grid">
+                    <div class="part-card nucleus">
+                      <div class="part-icon">🔵</div>
+                      <h4>Núcleo</h4>
+                      <p><strong>Centro de control</strong><br>
+                      • Contiene el ADN<br>
+                      • Controla actividades celulares<br>
+                      • Rodeado por membrana nuclear</p>
+                    </div>
+                    <div class="part-card cytoplasm">
+                      <div class="part-icon">🌊</div>
+                      <h4>Citoplasma</h4>
+                      <p><strong>Medio interno</strong><br>
+                      • Matriz gelatinosa<br>
+                      • Contiene organelos<br>
+                      • 70-85% agua</p>
+                    </div>
+                    <div class="part-card membrane">
+                      <div class="part-icon">🛡️</div>
+                      <h4>Membrana Plasmática</h4>
+                      <p><strong>Barrera selectiva</strong><br>
+                      • Bicapa lipídica<br>
+                      • Proteínas integradas<br>
+                      • Controla transporte</p>
+                    </div>
+                    <div class="part-card organelles">
+                      <div class="part-icon">⚙️</div>
+                      <h4>Organelos</h4>
+                      <p><strong>Estructuras especializadas</strong><br>
+                      • Funciones específicas<br>
+                      • Mitocondrias, RE, Golgi<br>
+                      • Trabajo coordinado</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-diagram-section">
+                  <div id="cell-organization-3d" class="model-3d-container">
+                    <div class="cell-organization-visual">
+                      <div class="cell-complete">
+                        <div class="cell-boundary">
+                          <div class="nucleus-detailed">
+                            <span class="nucleolus">●</span>
+                            <span class="chromatin">🧬</span>
+                          </div>
+                          <div class="organelles-distributed">
+                            <div class="mitochondria">⚡</div>
+                            <div class="er-rough">📦📦</div>
+                            <div class="er-smooth">〰️</div>
+                            <div class="golgi-apparatus">🏭</div>
+                            <div class="lysosomes">🔬🔬</div>
+                            <div class="ribosomes">●●●</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Membrana Plasmática -->
+          <div class="slide" data-slide="3">
+            <div class="slide-content">
+              <h2 class="slide-title">🛡️ Membrana Plasmática</h2>
+              <div class="membrane-layout">
+                <div class="membrane-structure">
+                  <h3>Estructura de la Bicapa Lipídica</h3>
+                  <div class="membrane-components-grid">
+                    <div class="component-card phospholipids">
+                      <h4>🟡 Fosfolípidos</h4>
+                      <p>• Forman la bicapa básica<br>
+                      • Cabeza hidrofílica<br>
+                      • Cola hidrofóbica<br>
+                      • Barrera selectiva</p>
+                    </div>
+                    <div class="component-card proteins">
+                      <h4>🔵 Proteínas</h4>
+                      <p><strong>Integrales:</strong> Atraviesan membrana<br>
+                      <strong>Periféricas:</strong> En la superficie<br>
+                      • Transporte • Receptores • Enzimas</p>
+                    </div>
+                    <div class="component-card cholesterol">
+                      <h4>🔶 Colesterol</h4>
+                      <p>• Regula fluidez<br>
+                      • Estabiliza membrana<br>
+                      • Entre fosfolípidos<br>
+                      • Control de permeabilidad</p>
+                    </div>
+                    <div class="component-card carbohydrates">
+                      <h4>🍬 Carbohidratos</h4>
+                      <p>• Glicoproteínas<br>
+                      • Glicolípidos<br>
+                      • Reconocimiento celular<br>
+                      • Comunicación</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="membrane-functions">
+                  <h3>🔧 Funciones Principales</h3>
+                  <div class="functions-list">
+                    <div class="function-item">📥 <strong>Transporte selectivo</strong> - Controla entrada y salida</div>
+                    <div class="function-item">🔐 <strong>Protección</strong> - Barrera física y química</div>
+                    <div class="function-item">📡 <strong>Comunicación</strong> - Recepción de señales</div>
+                    <div class="function-item">🏷️ <strong>Identificación</strong> - Reconocimiento celular</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Citoplasma y Composición -->
+          <div class="slide" data-slide="4">
+            <div class="slide-content">
+              <h2 class="slide-title">🌊 Citoplasma y Composición</h2>
+              <div class="cytoplasm-layout">
+                <div class="composition-chart">
+                  <div class="water-section">
+                    <div class="percentage-display">70-85%</div>
+                    <h3>💧 Agua</h3>
+                    <p>El componente principal del citoplasma</p>
+                  </div>
+                  <div class="components-breakdown">
+                    <h3>Componentes Principales:</h3>
+                    <div class="component-items">
+                      <div class="component primary">
+                        <span class="component-icon">⚡</span>
+                        <span class="component-name">Iones</span>
+                        <span class="component-desc">K⁺, Na⁺, Cl⁻, Ca²⁺</span>
+                      </div>
+                      <div class="component secondary">
+                        <span class="component-icon">🧬</span>
+                        <span class="component-name">Proteínas</span>
+                        <span class="component-desc">Enzimas y estructurales</span>
+                      </div>
+                      <div class="component tertiary">
+                        <span class="component-icon">🍯</span>
+                        <span class="component-name">Carbohidratos</span>
+                        <span class="component-desc">Glucosa y glucógeno</span>
+                      </div>
+                      <div class="component quaternary">
+                        <span class="component-icon">🧈</span>
+                        <span class="component-name">Lípidos</span>
+                        <span class="component-desc">Triglicéridos y fosfolípidos</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Núcleo Celular -->
+          <div class="slide" data-slide="5">
+            <div class="slide-content">
+              <h2 class="slide-title">🔵 Núcleo Celular</h2>
+              <div class="nucleus-layout">
+                <div class="nucleus-structure">
+                  <h3>Centro de Control Celular</h3>
+                  <div class="nucleus-components">
+                    <div class="nucleus-part membrane">
+                      <h4>🛡️ Membrana Nuclear</h4>
+                      <p>• Doble membrana<br>• Poros nucleares<br>• Control de acceso</p>
+                    </div>
+                    <div class="nucleus-part nucleoplasm">
+                      <h4>🌊 Nucleoplasma</h4>
+                      <p>• Medio interno del núcleo<br>• Contiene cromatina<br>• Reacciones nucleares</p>
+                    </div>
+                    <div class="nucleus-part nucleolus">
+                      <h4>● Nucleolo</h4>
+                      <p>• Síntesis de ribosomas<br>• Rica en ARN<br>• Centro denso</p>
+                    </div>
+                    <div class="nucleus-part chromatin">
+                      <h4>🧬 Cromatina</h4>
+                      <p>• ADN + proteínas<br>• Material genético<br>• Control de la herencia</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="nucleus-functions">
+                  <h3>🎯 Funciones Principales</h3>
+                  <div class="functions-grid">
+                    <div class="function-card">
+                      <span class="function-icon">🧬</span>
+                      <h4>Control Genético</h4>
+                      <p>Almacena y protege el ADN</p>
+                    </div>
+                    <div class="function-card">
+                      <span class="function-icon">📝</span>
+                      <h4>Transcripción</h4>
+                      <p>Síntesis de ARN mensajero</p>
+                    </div>
+                    <div class="function-card">
+                      <span class="function-icon">⚙️</span>
+                      <h4>Regulación</h4>
+                      <p>Controla actividades celulares</p>
+                    </div>
+                    <div class="function-card">
+                      <span class="function-icon">🔄</span>
+                      <h4>División</h4>
+                      <p>Organiza la división celular</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Retículo Endoplasmático -->
+          <div class="slide" data-slide="6">
+            <div class="slide-content">
+              <h2 class="slide-title">🏭 Retículo Endoplasmático</h2>
+              <div class="er-layout">
+                <div class="er-types">
+                  <div class="er-type rough">
+                    <h3>📦 RE Rugoso</h3>
+                    <div class="er-characteristics">
+                      <p><strong>Características:</strong></p>
+                      <ul>
+                        <li>Ribosomas adheridos</li>
+                        <li>Síntesis de proteínas</li>
+                        <li>Proteínas de secreción</li>
+                        <li>Proteínas de membrana</li>
+                      </ul>
+                    </div>
+                    <div id="membrane-3d" class="model-3d-container">
+                      <div class="er-visual rough-visual">
+                        <div class="er-membrane">〰️〰️〰️</div>
+                        <div class="ribosomes-attached">📦📦📦</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="er-type smooth">
+                    <h3>〰️ RE Liso</h3>
+                    <div class="er-characteristics">
+                      <p><strong>Características:</strong></p>
+                      <ul>
+                        <li>Sin ribosomas</li>
+                        <li>Síntesis de lípidos</li>
+                        <li>Metabolismo de carbohidratos</li>
+                        <li>Detoxificación</li>
+                      </ul>
+                    </div>
+                    <div class="er-visual smooth-visual">
+                      <div class="er-membrane-smooth">〰️〰️〰️</div>
+                      <div class="lipid-synthesis">🧈🧈</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="er-functions">
+                  <h3>⚙️ Funciones del Retículo Endoplasmático</h3>
+                  <div class="functions-comparison">
+                    <div class="function-column rough-functions">
+                      <h4>RE Rugoso</h4>
+                      <ul>
+                        <li>🧬 Síntesis de proteínas</li>
+                        <li>📦 Modificación de proteínas</li>
+                        <li>🏷️ Plegamiento de proteínas</li>
+                        <li>📤 Transporte al Golgi</li>
+                      </ul>
+                    </div>
+                    <div class="function-column smooth-functions">
+                      <h4>RE Liso</h4>
+                      <ul>
+                        <li>🧈 Síntesis de lípidos</li>
+                        <li>💊 Detoxificación</li>
+                        <li>🍯 Metabolismo de carbohidratos</li>
+                        <li>📦 Transporte de sustancias</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7: Aparato de Golgi -->
+          <div class="slide" data-slide="7">
+            <div class="slide-content">
+              <h2 class="slide-title">🏗️ Aparato de Golgi</h2>
+              <div class="golgi-layout">
+                <div class="golgi-structure">
+                  <h3>Centro de Procesamiento</h3>
+                  <div class="golgi-visual">
+                    <div class="golgi-stack">
+                      <div class="cisterna">🟢 Cara cis (recepción)</div>
+                      <div class="cisterna">🟡 Cisternas mediales</div>
+                      <div class="cisterna">🔵 Cara trans (envío)</div>
+                    </div>
+                    <div class="vesicles">
+                      <div class="incoming-vesicle">📦 → (del RE)</div>
+                      <div class="outgoing-vesicle">📤 → (a destino)</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="golgi-functions">
+                  <h3>🔧 Funciones Principales</h3>
+                  <div class="functions-flow">
+                    <div class="function-step">
+                      <span class="step-number">1</span>
+                      <h4>📥 Recepción</h4>
+                      <p>Recibe vesículas del RE rugoso</p>
+                    </div>
+                    <div class="function-step">
+                      <span class="step-number">2</span>
+                      <h4>🔧 Modificación</h4>
+                      <p>Modifica y procesa proteínas</p>
+                    </div>
+                    <div class="function-step">
+                      <span class="step-number">3</span>
+                      <h4>📦 Empaquetamiento</h4>
+                      <p>Empaqueta en vesículas</p>
+                    </div>
+                    <div class="function-step">
+                      <span class="step-number">4</span>
+                      <h4>📤 Envío</h4>
+                      <p>Envía a destino final</p>
+                    </div>
+                  </div>
+                  <div class="secretion-types">
+                    <h4>Tipos de Secreción:</h4>
+                    <div class="secretion-items">
+                      <div class="secretion-item">🔄 <strong>Constitutiva</strong> - Continua</div>
+                      <div class="secretion-item">⏰ <strong>Regulada</strong> - Bajo demanda</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8: Mitocondrias -->
+          <div class="slide" data-slide="8">
+            <div class="slide-content">
+              <h2 class="slide-title">⚡ Mitocondrias: Centrales Energéticas</h2>
+              <div class="mitochondria-layout">
+                <div class="mito-structure">
+                  <h3>Estructura de la Mitocondria</h3>
+                  <div class="mito-components">
+                    <div class="mito-part outer-membrane">
+                      <h4>🛡️ Membrana Externa</h4>
+                      <p>• Permeable a moléculas pequeñas<br>• Contiene porinas<br>• Superficie lisa</p>
+                    </div>
+                    <div class="mito-part inner-membrane">
+                      <h4>⚡ Membrana Interna</h4>
+                      <p>• Crestas mitocondriales<br>• Cadena respiratoria<br>• Produce ATP</p>
+                    </div>
+                    <div class="mito-part matrix">
+                      <h4>🌊 Matriz Mitocondrial</h4>
+                      <p>• ADN mitocondrial<br>• Ribosomas<br>• Enzimas del ciclo de Krebs</p>
+                    </div>
+                    <div class="mito-part intermembrane">
+                      <h4>📏 Espacio Intermembrana</h4>
+                      <p>• Entre membranas<br>• Gradiente de protones<br>• Síntesis de ATP</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mito-functions">
+                  <h3>🎯 Funciones Principales</h3>
+                  <div class="energy-production">
+                    <div class="atp-synthesis">
+                      <h4>🔋 Síntesis de ATP</h4>
+                      <div class="atp-process">
+                        <span class="process-step">Glucosa + O₂</span>
+                        <span class="arrow">→</span>
+                        <span class="process-step">ATP + CO₂ + H₂O</span>
+                      </div>
+                      <p><strong>Resultado:</strong> ~36-38 moléculas de ATP por glucosa</p>
+                    </div>
+                    <div class="other-functions">
+                      <h4>Otras Funciones:</h4>
+                      <ul>
+                        <li>🔥 Regulación térmica</li>
+                        <li>🧬 Herencia materna</li>
+                        <li>💀 Apoptosis (muerte celular)</li>
+                        <li>🏪 Almacenamiento de calcio</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9: Lisosomas -->
+          <div class="slide" data-slide="9">
+            <div class="slide-content">
+              <h2 class="slide-title">🔬 Lisosomas: Sistema Digestivo Celular</h2>
+              <div class="lysosomes-layout">
+                <div class="lyso-structure">
+                  <h3>Estructura y Componentes</h3>
+                  <div class="lyso-info">
+                    <div class="lyso-characteristics">
+                      <h4>📊 Características:</h4>
+                      <ul>
+                        <li>Vesículas membranosas</li>
+                        <li>pH ácido (~4.5)</li>
+                        <li>Enzimas hidrolíticas</li>
+                        <li>Origen en aparato de Golgi</li>
+                      </ul>
+                    </div>
+                    <div class="lyso-enzymes">
+                      <h4>🧪 Enzimas Principales:</h4>
+                      <ul>
+                        <li>Proteasas (proteínas)</li>
+                        <li>Lipasas (lípidos)</li>
+                        <li>Nucleasas (ácidos nucleicos)</li>
+                        <li>Fosfatasas (fosfatos)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="lyso-functions">
+                  <h3>⚙️ Funciones de los Lisosomas</h3>
+                  <div class="functions-grid">
+                    <div class="function-card autophagy">
+                      <span class="function-icon">♻️</span>
+                      <h4>Autofagia</h4>
+                      <p>Digestión de organelos dañados</p>
+                    </div>
+                    <div class="function-card heterophagy">
+                      <span class="function-icon">🍽️</span>
+                      <h4>Heterofagia</h4>
+                      <p>Digestión de material externo</p>
+                    </div>
+                    <div class="function-card secretion">
+                      <span class="function-icon">📤</span>
+                      <h4>Secreción</h4>
+                      <p>Liberación de enzimas</p>
+                    </div>
+                    <div class="function-card defense">
+                      <span class="function-icon">🛡️</span>
+                      <h4>Defensa</h4>
+                      <p>Destrucción de patógenos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 10: Peroxisomas -->
+          <div class="slide" data-slide="10">
+            <div class="slide-content">
+              <h2 class="slide-title">💎 Peroxisomas: Detoxificación Celular</h2>
+              <div class="peroxisomes-layout">
+                <div class="perox-structure">
+                  <h3>Estructura y Características</h3>
+                  <div class="perox-info">
+                    <div class="perox-features">
+                      <h4>📊 Características:</h4>
+                      <ul>
+                        <li>Núcleo cristalizado</li>
+                        <li>Membrana plasmática</li>
+                        <li>Capa lipídica</li>
+                        <li>Rica en enzimas oxidativas</li>
+                      </ul>
+                    </div>
+                    <div class="perox-location">
+                      <h4>📍 Ubicación:</h4>
+                      <ul>
+                        <li>Abundantes en hígado</li>
+                        <li>Presentes en riñones</li>
+                        <li>Células del sistema nervioso</li>
+                        <li>Tejidos metabolicamente activos</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="perox-functions">
+                  <h3>🔧 Funciones Principales</h3>
+                  <div class="functions-detailed">
+                    <div class="function-category oxidation">
+                      <h4>🔥 Oxidación</h4>
+                      <p>• Oxidación de ácidos grasos<br>
+                      • Producción de acetil-CoA<br>
+                      • Metabolismo de lípidos</p>
+                    </div>
+                    <div class="function-category detox">
+                      <h4>🧹 Detoxificación</h4>
+                      <p>• Eliminación de H₂O₂<br>
+                      • Neutralización de tóxicos<br>
+                      • Protección celular</p>
+                    </div>
+                    <div class="function-category synthesis">
+                      <h4>🔧 Síntesis</h4>
+                      <p>• Síntesis de fosfolípidos<br>
+                      • Producción de colesterol<br>
+                      • Metabolismo especializado</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 11: Citoesqueleto -->
+          <div class="slide" data-slide="11">
+            <div class="slide-content">
+              <h2 class="slide-title">🏗️ Citoesqueleto: Esqueleto Celular</h2>
+              <div class="cytoskeleton-layout">
+                <div class="cytosk-components">
+                  <h3>Componentes del Citoesqueleto</h3>
+                  <div class="components-grid">
+                    <div class="component-card microfilaments">
+                      <h4>📏 Microfilamentos</h4>
+                      <div class="component-details">
+                        <p><strong>Composición:</strong> Actina</p>
+                        <p><strong>Diámetro:</strong> 7 nm</p>
+                        <p><strong>Función:</strong> Movimiento celular, contracción</p>
+                      </div>
+                    </div>
+                    <div class="component-card intermediate">
+                      <h4>📐 Filamentos Intermedios</h4>
+                      <div class="component-details">
+                        <p><strong>Composición:</strong> Queratina, vimentina</p>
+                        <p><strong>Diámetro:</strong> 10 nm</p>
+                        <p><strong>Función:</strong> Soporte estructural</p>
+                      </div>
+                    </div>
+                    <div class="component-card microtubules">
+                      <h4>🔗 Microtúbulos</h4>
+                      <div class="component-details">
+                        <p><strong>Composición:</strong> Tubulina</p>
+                        <p><strong>Diámetro:</strong> 25 nm</p>
+                        <p><strong>Función:</strong> Transporte, forma celular</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cytosk-functions">
+                  <h3>⚙️ Funciones del Citoesqueleto</h3>
+                  <div class="functions-list">
+                    <div class="function-item structure">
+                      <span class="function-icon">🏗️</span>
+                      <h4>Soporte Estructural</h4>
+                      <p>Mantiene la forma celular</p>
+                    </div>
+                    <div class="function-item movement">
+                      <span class="function-icon">🏃</span>
+                      <h4>Movimiento Celular</h4>
+                      <p>Facilita migración y locomoción</p>
+                    </div>
+                    <div class="function-item transport">
+                      <span class="function-icon">🚛</span>
+                      <h4>Transporte Intracelular</h4>
+                      <p>Mueve organelos y vesículas</p>
+                    </div>
+                    <div class="function-item division">
+                      <span class="function-icon">🔄</span>
+                      <h4>División Celular</h4>
+                      <p>Organiza la mitosis</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 12: Procesos Celulares -->
+          <div class="slide" data-slide="12">
+            <div class="slide-content">
+              <h2 class="slide-title">🚀 Procesos Celulares Fundamentales</h2>
+              <div class="processes-layout">
+                <div class="transport-processes">
+                  <h3>🚛 Procesos de Transporte</h3>
+                  <div class="transport-types">
+                    <div class="transport-type endocytosis">
+                      <h4>📥 Endocitosis</h4>
+                      <div class="process-details">
+                        <p><strong>Pinocitosis:</strong> Ingesta de líquidos</p>
+                        <p><strong>Fagocitosis:</strong> Ingesta de partículas</p>
+                        <p><strong>Endocitosis mediada:</strong> Por receptores</p>
+                      </div>
+                    </div>
+                    <div class="transport-type exocytosis">
+                      <h4>📤 Exocitosis</h4>
+                      <div class="process-details">
+                        <p><strong>Secreción:</strong> Liberación de sustancias</p>
+                        <p><strong>Vesículas:</strong> Fusión con membrana</p>
+                        <p><strong>Productos:</strong> Proteínas, hormonas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cellular-communication">
+                  <h3>📡 Comunicación Celular</h3>
+                  <div class="communication-methods">
+                    <div class="comm-method signals">
+                      <span class="comm-icon">📶</span>
+                      <h4>Señalización</h4>
+                      <p>Receptores de membrana</p>
+                    </div>
+                    <div class="comm-method recognition">
+                      <span class="comm-icon">🏷️</span>
+                      <h4>Reconocimiento</h4>
+                      <p>Marcadores de superficie</p>
+                    </div>
+                    <div class="comm-method adhesion">
+                      <span class="comm-icon">🤝</span>
+                      <h4>Adhesión</h4>
+                      <p>Uniones celulares</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="chapter-summary">
+                  <h3>✨ Resumen del Capítulo</h3>
+                  <div class="summary-points">
+                    <div class="summary-item">
+                      <span class="summary-icon">🔬</span>
+                      <p>La célula es la <strong>unidad básica de la vida</strong></p>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-icon">⚙️</span>
+                      <p>Los <strong>organelos</strong> trabajan coordinadamente</p>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-icon">🛡️</span>
+                      <p>La <strong>membrana</strong> controla el intercambio</p>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-icon">🚀</span>
+                      <p>Los <strong>procesos celulares</strong> mantienen la vida</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="chapter-navigation-section">
+                  <h3>📚 Continúa tu aprendizaje</h3>
+                  <div class="next-chapter-card">
+                    <a href="capitulo4.html" class="chapter-link">
+                      <div class="chapter-link-content">
+                        <div class="chapter-icon">🚛</div>
+                        <div class="chapter-text">
+                          <h4>Siguiente: Capítulo 4</h4>
+                          <h5>Transporte de Sustancias a través de las Membranas</h5>
+                          <p>Explora los mecanismos de difusión, osmosis y transporte activo</p>
+                        </div>
+                        <div class="chapter-arrow">→</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/capitulo2.js"></script>
+  </body>
+</html>
