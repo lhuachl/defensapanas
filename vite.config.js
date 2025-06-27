@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  // Base path para GitHub Pages
-  base: '/defensapanas/',
+  // Base path relativo - funciona en cualquier plataforma
+  base: './',
   
   // Configuración del build
   build: {

@@ -86,7 +86,7 @@ class Capitulo2Presentation {
         case 'Escape':
           // Opción para volver al menú principal
           if (confirm('¿Deseas volver a la presentación principal?')) {
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
           }
           break;
       }
@@ -169,7 +169,7 @@ class Capitulo2Presentation {
     } else {
       // En la primera slide, opción de volver al menú
       if (confirm('Estás en la primera diapositiva. ¿Deseas volver al menú principal?')) {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
       }
     }
   }

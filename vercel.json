@@ -1,12 +1,8 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build"
-    }
-  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/capitulo2",
@@ -15,24 +11,6 @@
     {
       "source": "/capitulo4", 
       "destination": "/capitulo4.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/capitulo2.html",
-      "dest": "/capitulo2.html"
-    },
-    {
-      "src": "/capitulo4.html", 
-      "dest": "/capitulo4.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ]
 }
