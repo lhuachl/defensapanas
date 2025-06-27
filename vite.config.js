@@ -1,31 +1,27 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   // Base path relativo - funciona en cualquier plataforma
   base: './',
   
-  // Configuración del build
+  // Configuración del build simplificada
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    // Generar manifest para mejor control de assets
-    manifest: false,
-    // Optimizar para producción
-    minify: 'terser',
+    // Usar esbuild por defecto (más confiable)
+    minify: 'esbuild',
+    // Configuración simplificada
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        capitulo2: resolve(__dirname, 'capitulo2.html'),
+        capitulo4: resolve(__dirname, 'capitulo4.html')
+      },
       output: {
-        // Organizar los archivos generados
-        assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split('.').at(1);
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = 'img';
-          } else if (/css/i.test(extType)) {
-            extType = 'css';
-          }
-          return `assets/${extType}/[name]-[hash][extname]`;
-        },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       },
     },
   },
@@ -35,14 +31,6 @@ export default defineConfig({
     port: 5173,
     open: true,
     host: true
-  },
-  
-  // Resolver aliases para rutas más limpias
-  resolve: {
-    alias: {
-      '@': '/src',
-      '@public': '/public'
-    }
   },
   
   // Manejo de assets públicos

@@ -1,8 +1,14 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
+  "installCommand": "npm install",
   "cleanUrls": false,
   "trailingSlash": false,
+  "functions": {
+    "app/**": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "rewrites": [
     {
       "source": "/capitulo2",
