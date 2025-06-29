@@ -1,0 +1,419 @@
+/* ===== SISTEMA DE PARALLAX AVANZADO ===== */
+@import './theme-colors.css';
+
+/* Configuración base para perspectiva 3D */
+.chapter-presentation-container,
+.presentation-container {
+  perspective: 2000px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* ===== CAPAS DE PARALLAX ===== */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Capa de fondo - movimiento más lento */
+.parallax-bg {
+  z-index: 1;
+  transform: translateZ(-400px);
+  opacity: 0.3;
+}
+
+/* Capa media - movimiento moderado */
+.parallax-mid {
+  z-index: 5;
+  transform: translateZ(-200px);
+  opacity: 0.6;
+}
+
+/* Capa frontal - movimiento rápido */
+.parallax-front {
+  z-index: 10;
+  transform: translateZ(-100px);
+  opacity: 0.8;
+}
+
+/* ===== ELEMENTOS PARALLAX ESPECÍFICOS ===== */
+
+/* Partículas flotantes de fondo */
+.floating-particles,
+.parallax-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+  background: radial-gradient(circle, var(--primary-yellow), transparent);
+  animation: float 20s infinite linear;
+}
+
+.floating-particle.large {
+  width: 12px;
+  height: 12px;
+  animation-duration: 25s;
+}
+
+.floating-particle.medium {
+  width: 8px;
+  height: 8px;
+  animation-duration: 20s;
+}
+
+.floating-particle.small {
+  width: 4px;
+  height: 4px;
+  animation-duration: 15s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== EFECTOS DE PROFUNDIDAD ===== */
+
+/* Geometría de fondo */
+.bg-geometry {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  animation: bgFloat 30s infinite ease-in-out;
+}
+
+.bg-shape:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 70%;
+  animation-delay: 0s;
+}
+
+.bg-shape:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+.bg-shape:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: 30%;
+  left: 10%;
+  animation-delay: -20s;
+}
+
+@keyframes bgFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(-60px) rotate(240deg);
+  }
+}
+
+/* ===== EFECTOS INTERACTIVOS ===== */
+
+/* Ondas de mouse */
+.mouse-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-yellow), transparent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-out;
+}
+
+/* Grid de perspectiva */
+.perspective-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 204, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 204, 0, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+  transform: rotateX(60deg) translateZ(-500px);
+}
+
+/* ===== EFECTOS POR SLIDE ===== */
+
+/* Slide 1 - Introducción con DNA helix */
+.slide[data-slide="1"] .parallax-bg {
+  background: radial-gradient(ellipse at center, rgba(65, 105, 225, 0.2) 0%, transparent 70%);
+}
+
+.dna-helix {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 200px;
+  height: 400px;
+  z-index: 3;
+  animation: rotate3d 20s infinite linear;
+}
+
+@keyframes rotate3d {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Slide 2 - Membrana con ondas */
+.slide[data-slide="2"] .parallax-mid {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 204, 0, 0.1) 0%,
+    transparent 25%,
+    rgba(65, 105, 225, 0.1) 50%,
+    transparent 75%,
+    rgba(255, 204, 0, 0.1) 100%
+  );
+  animation: waveMotion 15s infinite ease-in-out;
+}
+
+@keyframes waveMotion {
+  0%, 100% { transform: translateZ(-200px) skewX(0deg); }
+  50% { transform: translateZ(-200px) skewX(2deg); }
+}
+
+/* Slide 3 - Transporte con partículas */
+.transport-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.transport-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-yellow);
+  border-radius: 50%;
+  animation: transportFlow 8s infinite linear;
+}
+
+@keyframes transportFlow {
+  0% {
+    transform: translateX(-100px) translateY(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px)) translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* ===== EFECTOS DE PROFUNDIDAD DE CAMPO ===== */
+
+.depth-blur {
+  filter: blur(0px);
+  transition: filter 0.3s ease;
+}
+
+.depth-blur.far {
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.depth-blur.near {
+  filter: blur(1px);
+  opacity: 0.9;
+}
+
+/* ===== EFECTOS DE ILUMINACIÓN ===== */
+
+.dynamic-lighting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 204, 0, 0.15) 0%,
+    rgba(255, 204, 0, 0.05) 30%,
+    transparent 60%
+  );
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* ===== RESPONSIVE PARALLAX ===== */
+
+@media (max-width: 768px) {
+  .parallax-layer {
+    transform: none !important;
+  }
+  
+  .floating-particle {
+    animation-duration: 10s !important;
+  }
+  
+  .chapter-presentation-container {
+    perspective: 1000px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer,
+  .floating-particle,
+  .bg-shape,
+  .transport-particle {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+
+@keyframes membraneWave {
+  0%, 100% {
+    transform: translateX(-10px) scaleX(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(10px) scaleX(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes diffusionSpread {
+  0% {
+    background: radial-gradient(circle at 30% 50%, rgba(255, 204, 0, 0.3) 0%, transparent 30%);
+    transform: scale(1);
+  }
+  50% {
+    background: radial-gradient(circle at 70% 50%, rgba(65, 105, 225, 0.4) 0%, transparent 60%);
+    transform: scale(1.2);
+  }
+  100% {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 204, 0, 0.2) 0%, transparent 80%);
+    transform: scale(1);
+  }
+}
+
+@keyframes osmosisFlow {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(200px) translateY(-50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Efecto de respiración para elementos */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Efecto de pulso de energía */
+@keyframes energyPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 204, 0, 0);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+    transform: scale(1);
+  }
+}
+
+/* Efecto de ondas concéntricas */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ===== ACELERACIÓN DE HARDWARE ===== */
+
+.parallax-layer,
+.floating-particle,
+.bg-shape,
+.mouse-trail,
+.transport-particle {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}

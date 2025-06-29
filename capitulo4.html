@@ -7,7 +7,10 @@
     <title>Capítulo 4: Transporte de Sustancias a través de las Membranas Celulares - Fisiología Humana</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/capitulo4.css">
+    <link rel="stylesheet" href="./src/theme-colors.css">
+    <link rel="stylesheet" href="./src/unified-styles.css">
+    <link rel="stylesheet" href="./src/parallax-effects.css">
+    <link rel="stylesheet" href="./src/chapter-enhancements.css">
   </head>
   <body>
     <div id="app">
@@ -36,7 +39,7 @@
             <div class="progress-fill"></div>
           </div>
           <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
           </div>
         </div>
 
@@ -49,35 +52,66 @@
               <div class="chapter-intro">
                 <h1 class="main-title">Transporte de Sustancias a través de las Membranas Celulares</h1>
                 <div class="chapter-description">
-                  <p class="intro-text">Exploraremos los mecanismos fundamentales que permiten el intercambio de sustancias entre el interior y exterior de las células</p>
+                  <p class="intro-text">La membrana celular es una <strong>bicapa lipídica</strong> con proteínas de transporte que constituye una barrera entre los compartimientos LEC e LIC</p>
                   <div class="chapter-highlights">
                     <div class="highlight-item">
                       <span class="highlight-icon">🧱</span>
-                      <span>Estructura de la membrana celular</span>
+                      <span>Bicapa lipídica no miscible con LEC ni LIC</span>
                     </div>
                     <div class="highlight-item">
                       <span class="highlight-icon">🌊</span>
-                      <span>Procesos de difusión</span>
+                      <span>Difusión: movimiento molecular aleatorio</span>
                     </div>
                     <div class="highlight-item">
                       <span class="highlight-icon">⚡</span>
-                      <span>Transporte activo</span>
+                      <span>Transporte activo: contra gradiente energético</span>
                     </div>
                     <div class="highlight-item">
                       <span class="highlight-icon">💧</span>
-                      <span>Osmosis y presión osmótica</span>
+                      <span>Osmosis: paso del solvente selectivo</span>
                     </div>
                   </div>
                 </div>
                 <div class="membrane-visual">
                   <div class="lipid-bilayer">
-                    <div class="phospholipid-layer top"></div>
-                    <div class="membrane-proteins">
-                      <div class="channel-protein"></div>
-                      <div class="transport-protein"></div>
-                      <div class="pump-protein"></div>
+                    <div class="phospholipid-layer top">
+                      <div class="phospholipid-head"></div>
+                      <div class="phospholipid-head"></div>
+                      <div class="phospholipid-head"></div>
                     </div>
-                    <div class="phospholipid-layer bottom"></div>
+                    <div class="membrane-proteins">
+                      <div class="channel-protein">
+                        <span class="protein-label">Canal</span>
+                        <div class="ion-flow">Na⁺</div>
+                      </div>
+                      <div class="transport-protein">
+                        <span class="protein-label">Transportador</span>
+                        <div class="molecule-flow">Glucosa</div>
+                      </div>
+                      <div class="pump-protein">
+                        <span class="protein-label">Bomba</span>
+                        <div class="atp-symbol">ATP</div>
+                      </div>
+                    </div>
+                    <div class="phospholipid-layer bottom">
+                      <div class="phospholipid-head"></div>
+                      <div class="phospholipid-head"></div>
+                      <div class="phospholipid-head"></div>
+                    </div>
+                  </div>
+                  <div class="membrane-legend">
+                    <div class="legend-item">
+                      <div class="legend-dot channel"></div>
+                      <span>Canales iónicos</span>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-dot transport"></div>
+                      <span>Transportadores</span>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-dot pump"></div>
+                      <span>Bombas ATP</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -145,7 +179,7 @@
                   <div class="transport-card">
                     <div class="transport-definition">
                       <p><strong>Movimiento molecular aleatorio</strong> de sustancias</p>
-                      <p>Energía: <span class="energy-source">Energía cinética natural</span></p>
+                      <p>Energía: <span class="energy-source">Energía cinética natural de la materia</span></p>
                     </div>
                     <div class="transport-characteristics">
                       <h4>Características:</h4>
@@ -163,7 +197,7 @@
                   <div class="transport-card">
                     <div class="transport-definition">
                       <p><strong>Movimiento contra gradiente</strong> de concentración</p>
-                      <p>Energía: <span class="energy-source">ATP + Proteínas transportadoras</span></p>
+                      <p>Energía: <span class="energy-source">Fuente de energía adicional (ATP) + Proteínas transportadoras</span></p>
                     </div>
                     <div class="transport-characteristics">
                       <h4>Características:</h4>
@@ -180,11 +214,44 @@
               <div class="transport-comparison">
                 <div class="concentration-diagram">
                   <div class="gradient-visual">
-                    <div class="high-concentration">Alta [C]</div>
-                    <div class="membrane-barrier"></div>
-                    <div class="low-concentration">Baja [C]</div>
-                    <div class="passive-arrow">→ Difusión</div>
-                    <div class="active-arrow">← Transporte Activo</div>
+                    <div class="concentration-side high">
+                      <span class="concentration-label">Alta Concentración</span>
+                      <div class="particles-demo">
+                        <div class="particle">●</div>
+                        <div class="particle">●</div>
+                        <div class="particle">●</div>
+                        <div class="particle">●</div>
+                        <div class="particle">●</div>
+                      </div>
+                    </div>
+                    <div class="membrane-barrier">
+                      <div class="barrier-line"></div>
+                      <div class="passive-arrow">→ Difusión Pasiva</div>
+                      <div class="active-arrow">← Transporte Activo (ATP)</div>
+                    </div>
+                    <div class="concentration-side low">
+                      <span class="concentration-label">Baja Concentración</span>
+                      <div class="particles-demo">
+                        <div class="particle">●</div>
+                        <div class="particle">●</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="energy-comparison">
+                  <div class="energy-source passive">
+                    <h4>🌊 Transporte Pasivo</h4>
+                    <p>Energía: <strong>Gradiente natural</strong></p>
+                    <div class="energy-bar">
+                      <div class="energy-fill passive-energy"></div>
+                    </div>
+                  </div>
+                  <div class="energy-source active">
+                    <h4>⚡ Transporte Activo</h4>
+                    <p>Energía: <strong>ATP + Proteínas</strong></p>
+                    <div class="energy-bar">
+                      <div class="energy-fill active-energy"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -205,6 +272,9 @@
                       <li>Canales acuosos</li>
                     </ol>
                     <p class="note">Sin interacción con proteínas transportadoras</p>
+                    <div class="diffusion-principles">
+                      <p><strong>Principio:</strong> "La energía que produce la difusión es la energía del movimiento cinético normal de la materia"</p>
+                    </div>
                   </div>
                 </div>
                 <div class="diffusion-factors">
@@ -234,12 +304,51 @@
                 </div>
                 <div class="diffusion-visual">
                   <div class="simple-diffusion-demo">
-                    <div class="membrane-section">
-                      <div class="lipid-molecules"></div>
-                      <div class="diffusing-particles">
-                        <div class="particle oxygen">O₂</div>
-                        <div class="particle co2">CO₂</div>
-                        <div class="particle water">H₂O</div>
+                    <div class="diffusion-container">
+                      <div class="membrane-section left">
+                        <h4>Lado A (Alta concentración)</h4>
+                        <div class="lipid-molecules">
+                          <div class="lipid"></div>
+                          <div class="lipid"></div>
+                          <div class="lipid"></div>
+                        </div>
+                        <div class="diffusing-particles high-density">
+                          <div class="particle oxygen">O₂</div>
+                          <div class="particle oxygen">O₂</div>
+                          <div class="particle oxygen">O₂</div>
+                          <div class="particle co2">CO₂</div>
+                          <div class="particle co2">CO₂</div>
+                          <div class="particle water">H₂O</div>
+                          <div class="particle water">H₂O</div>
+                        </div>
+                      </div>
+                      <div class="membrane-barrier-center">
+                        <div class="barrier-visual">
+                          <div class="lipid-bilayer-cross">
+                            <div class="head-group"></div>
+                            <div class="tail-group"></div>
+                            <div class="tail-group"></div>
+                            <div class="head-group"></div>
+                          </div>
+                          <div class="diffusion-arrows">
+                            <div class="arrow">→</div>
+                            <div class="arrow">→</div>
+                            <div class="arrow">→</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="membrane-section right">
+                        <h4>Lado B (Baja concentración)</h4>
+                        <div class="lipid-molecules">
+                          <div class="lipid"></div>
+                          <div class="lipid"></div>
+                          <div class="lipid"></div>
+                        </div>
+                        <div class="diffusing-particles low-density">
+                          <div class="particle oxygen">O₂</div>
+                          <div class="particle co2">CO₂</div>
+                          <div class="particle water">H₂O</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -267,6 +376,9 @@
                         <li>Polaridad</li>
                       </ul>
                     </div>
+                    <div class="facilitated-note">
+                      <p><strong>Nota:</strong> Precisa interacción con proteína transportadora pero sin gasto energético</p>
+                    </div>
                   </div>
                 </div>
                 <div class="aquaporins-section">
@@ -275,8 +387,9 @@
                     <p><strong>Poros proteicos especializados</strong></p>
                     <p>Permiten el paso rápido de agua a través de la membrana</p>
                     <div class="aquaporin-facts">
-                      <div class="fact">El agua es muy insoluble en lípidos</div>
-                      <div class="fact">Las acuaporinas son canales selectivos para H₂O</div>
+                      <div class="fact">El agua es muy insoluble en lípidos de la membrana</div>
+                      <div class="fact">Las acuaporinas son poros proteicos que permiten paso rápido</div>
+                      <div class="fact">Forman tubos abiertos a través de la membrana</div>
                     </div>
                   </div>
                 </div>
@@ -356,6 +469,7 @@
                       <h4>1. Por Voltaje</h4>
                       <p>Reposo: -90 mV → Canal cerrado</p>
                       <p>Activación: -65 mV → Canal abierto</p>
+                      <p><strong>Mecanismo:</strong> El canal permanece cerrado hasta que la polaridad cambie</p>
                       <div class="voltage-diagram">
                         <div class="membrane-potential">-90mV → -65mV</div>
                         <div class="channel-state">Cerrado → Abierto</div>
@@ -365,6 +479,7 @@
                       <h4>2. Química (Ligando)</h4>
                       <p>Ligando se une al receptor</p>
                       <p>Canal cambia: Cerrado → Abierto</p>
+                      <p><strong>Mecanismo:</strong> Químico o ligando entra en contacto con receptor del canal</p>
                       <div class="ligand-diagram">
                         <div class="ligand">🔑</div>
                         <div class="receptor">🔒 → 🔓</div>
@@ -385,7 +500,10 @@
                   <h3>Definición</h3>
                   <div class="definition-card">
                     <p><strong>Paso del solvente</strong> a través de una membrana de permeabilidad selectiva</p>
-                    <p><strong>Dirección:</strong> Desde menor concentración → Mayor concentración</p>
+                    <p><strong>Dirección:</strong> Desde menor concentración de solutos → Mayor concentración de solutos</p>
+                    <div class="osmosis-note">
+                      <p><em>Nota: El agua se mueve hacia donde hay mayor concentración de solutos</em></p>
+                    </div>
                   </div>
                 </div>
                 <div class="osmotic-concepts">
@@ -401,31 +519,70 @@
                   <div class="concept-card osmolarity">
                     <h4>📊 Osmolaridad</h4>
                     <p>Expresada en osmol por litro de solución</p>
-                    <p><small>Más práctica que la osmolalidad</small></p>
+                    <p><small>Más práctica que osmolalidad - evita medir kg de H₂O</small></p>
                   </div>
                 </div>
                 <div class="osmosis-visual">
                   <div class="osmosis-demo">
                     <div class="container left">
-                      <div class="solution-label">Hipotónica</div>
+                      <div class="solution-label">💧 Solución Hipotónica</div>
+                      <div class="concentration-level">
+                        <span class="level-indicator low">Baja concentración de solutos</span>
+                        <div class="solute-particles">
+                          <div class="solute-particle">🔵</div>
+                          <div class="solute-particle">🔵</div>
+                        </div>
+                      </div>
                       <div class="water-molecules">
                         <div class="water">💧</div>
                         <div class="water">💧</div>
                         <div class="water">💧</div>
+                        <div class="water">💧</div>
+                        <div class="water">💧</div>
                       </div>
-                      <div class="solute low">Baja [soluto]</div>
                     </div>
                     <div class="semipermeable-membrane">
-                      <div class="membrane-label">Membrana Semipermeable</div>
+                      <div class="membrane-label">🧱 Membrana Semipermeable</div>
+                      <div class="membrane-structure-osmosis">
+                        <div class="membrane-pore"></div>
+                        <div class="membrane-pore"></div>
+                        <div class="membrane-pore"></div>
+                      </div>
                       <div class="water-flow">→ H₂O →</div>
+                      <div class="osmotic-pressure">
+                        <span class="pressure-label">Presión Osmótica</span>
+                        <div class="pressure-indicator">↗️</div>
+                      </div>
                     </div>
                     <div class="container right">
-                      <div class="solution-label">Hipertónica</div>
+                      <div class="solution-label">🔶 Solución Hipertónica</div>
+                      <div class="concentration-level">
+                        <span class="level-indicator high">Alta concentración de solutos</span>
+                        <div class="solute-particles">
+                          <div class="solute-particle">🔶</div>
+                          <div class="solute-particle">�</div>
+                          <div class="solute-particle">🔶</div>
+                          <div class="solute-particle">🔶</div>
+                          <div class="solute-particle">🔶</div>
+                          <div class="solute-particle">🔶</div>
+                        </div>
+                      </div>
                       <div class="water-molecules">
                         <div class="water">💧</div>
+                        <div class="water">💧</div>
                       </div>
-                      <div class="solute high">Alta [soluto]</div>
-                      <div class="pressure-arrow">↑ Presión Osmótica</div>
+                      <div class="pressure-arrow">↑ Presión Osmótica Aumenta</div>
+                    </div>
+                  </div>
+                  <div class="osmosis-explanation">
+                    <div class="explanation-card">
+                      <h4>📊 Proceso de Osmosis</h4>
+                      <ol>
+                        <li><strong>El agua se mueve</strong> desde la zona de menor concentración de solutos</li>
+                        <li><strong>Hacia la zona</strong> de mayor concentración de solutos</li>
+                        <li><strong>A través de</strong> una membrana semipermeable</li>
+                        <li><strong>Hasta alcanzar</strong> el equilibrio osmótico</li>
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -457,6 +614,7 @@
                       <div class="pump-function">
                         <p><strong>Función:</strong> Mantener volumen celular normal</p>
                         <p>Si la célula se hincha → Se activa automáticamente</p>
+                        <p>Mueve más iones al exterior transportando agua con ellos</p>
                       </div>
                     </div>
                     <div class="pump-visual">
@@ -475,10 +633,10 @@
                       <p>Concentración Ca²⁺ intracelular: <strong>10,000 veces menor</strong> que en LEC</p>
                       <div class="calcium-pumps">
                         <div class="pump-type">
-                          <strong>Bomba 1:</strong> Membrana celular → Ca²⁺ al exterior
+                          <strong>Bomba 1:</strong> Membrana celular → Bombea Ca²⁺ al exterior
                         </div>
                         <div class="pump-type">
-                          <strong>Bomba 2:</strong> Orgánulos intracelulares → Ca²⁺ a vesículas
+                          <strong>Bomba 2:</strong> Orgánulos vesiculares → Bombea Ca²⁺ a vesículas intracelulares
                         </div>
                       </div>
                     </div>
@@ -509,6 +667,9 @@
                   <div class="definition-card">
                     <p><strong>Energía procede indirectamente</strong></p>
                     <p>Utiliza energía almacenada de un transporte activo primario</p>
+                    <div class="secondary-note">
+                      <p><em>La energía se ha almacenado previamente por un transporte activo primario</em></p>
+                    </div>
                   </div>
                 </div>
                 <div class="secondary-types">
@@ -516,6 +677,7 @@
                     <h3>↗️ Cotransporte (Simporte)</h3>
                     <div class="cotransport-details">
                       <p><strong>Arrastre de moléculas</strong> junto a una molécula transportada por transporte primario</p>
+                      <p><em>Ejemplo: Cotransportador Na⁺/Glucosa en intestino</em></p>
                       <div class="cotransport-visual">
                         <div class="membrane-protein">
                           <div class="primary-molecule">Na⁺</div>
@@ -530,6 +692,7 @@
                     <h3>↔️ Contratransporte (Antiporte)</h3>
                     <div class="countertransport-details">
                       <p><strong>Arrastre de moléculas</strong> en dirección opuesta a la molécula transportada por transporte primario</p>
+                      <p><em>Ejemplo: Intercambiador Na⁺/Ca²⁺ - elimina Ca²⁺ del citoplasma</em></p>
                       <div class="countertransport-visual">
                         <div class="membrane-protein">
                           <div class="primary-molecule">Na⁺</div>
@@ -642,9 +805,137 @@
             </div>
           </div>
 
+          <!-- Slide 11: Galería Visual Interactiva Mejorada -->
+          <div class="slide" data-slide="11">
+            <div class="slide-content">
+              <h2 class="slide-title">🔬 Laboratorio Virtual: Transporte Celular</h2>
+              <div class="virtual-lab">
+                <div class="lab-controls">
+                  <div class="control-panel">
+                    <h3>🎮 Controles del Laboratorio</h3>
+                    <div class="control-buttons">
+                      <button class="lab-btn" data-experiment="diffusion">🌊 Simular Difusión</button>
+                      <button class="lab-btn" data-experiment="osmosis">💧 Demostrar Osmosis</button>
+                      <button class="lab-btn" data-experiment="active-transport">⚡ Activar Bombas</button>
+                      <button class="lab-btn" data-experiment="reset">🔄 Reiniciar</button>
+                    </div>
+                  </div>
+                  <div class="lab-display">
+                    <div class="display-screen">
+                      <div class="screen-content">
+                        <h4 id="experiment-title">🧪 Selecciona un experimento</h4>
+                        <div class="experiment-area" id="experiment-area">
+                          <div class="placeholder-text">
+                            Click en los botones para iniciar experimentos virtuales
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="visual-gallery-enhanced">
+                  <div class="gallery-grid-3d">
+                    <div class="visual-card membrane-3d" data-info="membrana">
+                      <div class="card-content">
+                        <div class="card-header">
+                          <h3>🧱 Membrana Celular</h3>
+                          <span class="card-badge">Estructura</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="membrane-layers">
+                            <div class="layer phospholipid"></div>
+                            <div class="layer proteins"></div>
+                            <div class="layer channels"></div>
+                          </div>
+                          <p>Bicapa lipídica con proteínas especializadas</p>
+                        </div>
+                      </div>
+                      <div class="card-particles"></div>
+                    </div>
+                    
+                    <div class="visual-card transport-process" data-info="transporte">
+                      <div class="card-content">
+                        <div class="card-header">
+                          <h3>⚡ Transporte Activo</h3>
+                          <span class="card-badge">Proceso</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="transport-animation">
+                            <div class="atp-molecule">ATP</div>
+                            <div class="transport-arrows">→</div>
+                            <div class="ion-movement">Na⁺/K⁺</div>
+                          </div>
+                          <p>Bombas moleculares alimentadas por ATP</p>
+                        </div>
+                      </div>
+                      <div class="animation-indicator">⚡</div>
+                    </div>
+                    
+                    <div class="visual-card diffusion-demo" data-info="difusion">
+                      <div class="card-content">
+                        <div class="card-header">
+                          <h3>🌊 Difusión</h3>
+                          <span class="card-badge">Pasivo</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="diffusion-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                          </div>
+                          <p>Movimiento aleatorio de moléculas</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="visual-card osmosis-visual" data-info="osmosis">
+                      <div class="card-content">
+                        <div class="card-header">
+                          <h3>💧 Osmosis</h3>
+                          <span class="card-badge">H₂O</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="osmosis-mini">
+                            <div class="water-side">💧💧💧</div>
+                            <div class="membrane-barrier">||</div>
+                            <div class="solute-side">🔶🔶</div>
+                          </div>
+                          <p>Equilibrio de concentraciones</p>
+                        </div>
+                      </div>
+                      <div class="water-flow-animation">💧</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="interaction-stats">
+                  <div class="stats-panel">
+                    <h4>📊 Estadísticas de Aprendizaje</h4>
+                    <div class="stats-grid">
+                      <div class="stat-item">
+                        <span class="stat-value" id="experiments-run">0</span>
+                        <span class="stat-label">Experimentos</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-value" id="concepts-explored">0</span>
+                        <span class="stat-label">Conceptos</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-value" id="time-spent">00:00</span>
+                        <span class="stat-label">Tiempo</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-    <script type="module" src="./src/capitulo4.js"></script>
+    <script type="module" src="./src/capitulo4-enhanced-new.js"></script>
   </body>
 </html>
